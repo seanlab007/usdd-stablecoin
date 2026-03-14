@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>USDD — 全球四大稳定币 · 电力驱动 · 中国战略资产背书</title>
+  <meta name="description" content="USDD是全球四大稳定币之一，与中国国家电网、南方电网战略合作，以电力价值锚定，同时挂钩中国国家稀土资源，开创资源型稳定币新纪元。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800;900&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f0d06a;
+      --gold-dim: #7a5e2a;
+      --red: #c0392b;
+      --red-bright: #e74c3c;
+      --bg-dark: #050810;
+      --bg-mid: #0a0f1e;
+      --bg-card: #0e1428;
+      --bg-card2: #111830;
+      --text-primary: #e8dfc8;
+      --text-muted: #7a8099;
+      --text-bright: #ffffff;
+      --border: rgba(201,168,76,0.2);
+      --border-bright: rgba(201,168,76,0.6);
+      --electric-blue: #00b4ff;
+      --electric-glow: rgba(0,180,255,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Serif SC', serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ─── CUSTOM SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* ─── GRID PATTERN ─── */
+    .grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: linear-gradient(180deg, rgba(5,8,16,0.98) 0%, rgba(5,8,16,0.85) 100%);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-coin {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #7a5e2a 50%, var(--gold) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 900; font-size: 14px;
+      color: var(--bg-dark);
+      box-shadow: 0 0 20px rgba(201,168,76,0.4);
+      position: relative;
+      animation: coinSpin 8s linear infinite;
+    }
+    @keyframes coinSpin {
+      0%   { box-shadow: 0 0 20px rgba(201,168,76,0.4); }
+      50%  { box-shadow: 0 0 35px rgba(201,168,76,0.8), 0 0 60px rgba(201,168,76,0.2); }
+      100% { box-shadow: 0 0 20px rgba(201,168,76,0.4); }
+    }
+    .nav-logo-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 800; font-size: 20px;
+      color: var(--gold);
+      letter-spacing: 3px;
+    }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px; letter-spacing: 1.5px;
+      color: var(--text-muted);
+      font-family: 'Share Tech Mono', monospace;
+      transition: color 0.3s;
+      text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: 8px 20px;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      border-radius: 2px;
+      font-size: 12px !important;
+      transition: all 0.3s !important;
+    }
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--bg-dark) !important;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 120px 5% 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(0,180,255,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 70%, rgba(192,57,43,0.04) 0%, transparent 60%);
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      animation: fadeSlideDown 1s ease both;
+      background: rgba(201,168,76,0.05);
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #00e676;
+      box-shadow: 0 0 8px #00e676;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(64px, 12vw, 140px);
+      line-height: 0.9;
+      color: var(--gold);
+      text-align: center;
+      letter-spacing: 8px;
+      animation: fadeSlideDown 1s ease 0.15s both;
+      position: relative;
+    }
+    .hero-title::after {
+      content: 'USDD';
+      position: absolute; inset: 0;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,168,76,0.2);
+      transform: translate(4px, 4px);
+      z-index: -1;
+    }
+
+    .hero-subtitle-cn {
+      font-size: clamp(18px, 3vw, 28px);
+      color: var(--text-primary);
+      text-align: center;
+      letter-spacing: 6px;
+      margin: 16px 0 8px;
+      animation: fadeSlideDown 1s ease 0.3s both;
+      font-weight: 300;
+    }
+
+    .hero-subtitle-en {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(10px, 1.5vw, 14px);
+      color: var(--text-muted);
+      text-align: center;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      animation: fadeSlideDown 1s ease 0.45s both;
+    }
+
+    .hero-divider {
+      width: 120px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 32px auto;
+      animation: fadeSlideDown 1s ease 0.6s both;
+    }
+
+    .hero-desc {
+      max-width: 640px;
+      text-align: center;
+      line-height: 2;
+      font-size: 15px;
+      color: rgba(232,223,200,0.75);
+      animation: fadeSlideDown 1s ease 0.75s both;
+    }
+
+    .hero-stats {
+      display: flex; gap: 48px;
+      margin-top: 56px;
+      animation: fadeSlideDown 1s ease 0.9s both;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 28px; font-weight: 800;
+      color: var(--gold);
+      display: block;
+    }
+    .stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .hero-cta-group {
+      display: flex; gap: 16px; margin-top: 48px;
+      animation: fadeSlideDown 1s ease 1.05s both;
+    }
+    .btn-primary {
+      padding: 14px 36px;
+      background: linear-gradient(135deg, var(--gold) 0%, #a87d2a 100%);
+      color: var(--bg-dark);
+      border: none; border-radius: 2px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px; letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.4);
+    }
+    .btn-secondary {
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 13px; letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* COIN VISUAL */
+    .hero-coin {
+      position: absolute; right: 8%; top: 50%;
+      transform: translateY(-50%);
+      width: 280px; height: 280px;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(-50%) translateY(0); }
+      50% { transform: translateY(-50%) translateY(-20px); }
+    }
+    .coin-outer {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 0deg,
+        #7a5e2a, #c9a84c, #f0d06a, #c9a84c, #7a5e2a,
+        #c9a84c, #f0d06a, #c9a84c, #7a5e2a, #c9a84c,
+        #f0d06a, #7a5e2a
+      );
+      display: flex; align-items: center; justify-content: center;
+      box-shadow:
+        0 0 60px rgba(201,168,76,0.3),
+        0 0 120px rgba(201,168,76,0.1),
+        inset 0 0 40px rgba(0,0,0,0.5);
+      animation: rotateCoin 12s linear infinite;
+    }
+    @keyframes rotateCoin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+    .coin-inner {
+      width: 82%; height: 82%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #c9a84c, #7a5e2a 60%, #3a2e14);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      box-shadow: inset 0 4px 20px rgba(240,208,106,0.3);
+    }
+    .coin-text {
+      font-family: 'Cinzel', serif;
+      font-weight: 900; font-size: 48px;
+      color: #f0d06a;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      letter-spacing: 2px;
+    }
+    .coin-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 11px; letter-spacing: 3px;
+      color: rgba(240,208,106,0.7);
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── TICKER ─── */
+    .ticker-bar {
+      background: linear-gradient(90deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.04) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .ticker-content {
+      display: flex; gap: 80px;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px; letter-spacing: 1.5px;
+      color: var(--text-muted);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .ticker-item .up { color: #00e676; }
+    .ticker-item .name { color: var(--gold); font-weight: 600; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 100px 5%; position: relative; }
+
+    .section-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 30px; height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-title span { color: var(--gold); }
+
+    .section-desc {
+      max-width: 560px;
+      line-height: 2; font-size: 15px;
+      color: rgba(232,223,200,0.65);
+      margin-bottom: 56px;
+    }
+
+    /* ─── ABOUT (4大稳定币) ─── */
+    .about { background: var(--bg-dark); }
+
+    .coins-comparison {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .coin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 32px 24px;
+      border-radius: 4px;
+      text-align: center;
+      transition: all 0.4s;
+      position: relative;
+      overflow: hidden;
+    }
+    .coin-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .coin-card:hover::before { opacity: 1; }
+    .coin-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-bright);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .coin-card.featured {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, var(--bg-card) 100%);
+    }
+    .coin-card.featured::before { opacity: 1; }
+
+    .coin-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 900; font-size: 20px;
+    }
+    .coin-icon.usdd { background: linear-gradient(135deg, #c9a84c, #7a5e2a); color: #fff; box-shadow: 0 0 30px rgba(201,168,76,0.4); }
+    .coin-icon.usdt { background: linear-gradient(135deg, #26a17b, #1a7a5a); color: #fff; }
+    .coin-icon.usdc { background: linear-gradient(135deg, #2775ca, #1a4f8a); color: #fff; }
+    .coin-icon.usd1 { background: linear-gradient(135deg, #c0392b, #8b1a1a); color: #fff; }
+
+    .coin-name {
+      font-family: 'Cinzel', serif;
+      font-size: 22px; font-weight: 800;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+    }
+    .coin-card.featured .coin-name { color: var(--gold); }
+    .coin-rank {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .coin-desc-card {
+      font-size: 13px; line-height: 1.8;
+      color: rgba(232,223,200,0.6);
+    }
+    .coin-tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+    .coin-card.featured .coin-tag {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+    }
+
+    /* ─── POWER (电力) ─── */
+    .power-section {
+      background: var(--bg-mid);
+      overflow: hidden;
+    }
+    .power-section .grid-bg { opacity: 0.5; }
+
+    .power-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .power-visual {
+      position: relative;
+      height: 500px;
+    }
+
+    .power-circle {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .power-circle-1 {
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,180,255,0.2);
+      animation: rotateSlow 20s linear infinite;
+    }
+    .power-circle-2 {
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,180,255,0.3);
+      animation: rotateSlow 15s linear infinite reverse;
+    }
+    .power-circle-3 {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,180,255,0.1) 0%, transparent 70%);
+      border: 1px solid rgba(0,180,255,0.5);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .power-bolt {
+      font-size: 60px;
+      animation: pulseGlow 2s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100% { text-shadow: 0 0 20px #00b4ff, 0 0 40px rgba(0,180,255,0.5); }
+      50% { text-shadow: 0 0 40px #00b4ff, 0 0 80px rgba(0,180,255,0.8), 0 0 120px rgba(0,180,255,0.3); }
+    }
+    @keyframes rotateSlow {
+      from { transform: translate(-50%,-50%) rotate(0deg); }
+      to { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--electric-blue);
+      box-shadow: 0 0 12px var(--electric-blue);
+    }
+
+    .power-features { display: flex; flex-direction: column; gap: 24px; }
+
+    .power-feature {
+      display: flex; gap: 20px;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .power-feature:hover {
+      border-color: rgba(0,180,255,0.4);
+      box-shadow: 0 8px 30px rgba(0,180,255,0.05);
+    }
+    .power-feature-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(0,180,255,0.1);
+      border: 1px solid rgba(0,180,255,0.2);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .power-feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 15px; font-weight: 600;
+      color: var(--text-bright);
+      margin-bottom: 6px;
+    }
+    .power-feature-desc {
+      font-size: 13px; line-height: 1.8;
+      color: rgba(232,223,200,0.6);
+    }
+
+    .price-ticker {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background: rgba(0,180,255,0.05);
+      border: 1px solid rgba(0,180,255,0.2);
+      border-radius: 4px;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    .price-ticker-label {
+      font-size: 10px; letter-spacing: 2px;
+      color: rgba(0,180,255,0.7);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .price-ticker-value {
+      font-size: 24px; font-weight: 600;
+      color: var(--electric-blue);
+    }
+    .price-ticker-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ─── RARE EARTH (稀土) ─── */
+    .rare-earth-section {
+      background: var(--bg-dark);
+    }
+
+    .rare-earth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 56px;
+    }
+
+    .elements-table {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+    }
+
+    .element-card {
+      aspect-ratio: 1;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      cursor: default;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .element-card:hover {
+      border-color: var(--gold);
+      transform: scale(1.08);
+      z-index: 2;
+      box-shadow: 0 8px 30px rgba(201,168,76,0.2);
+    }
+    .element-num {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px; color: var(--text-muted);
+    }
+    .element-sym {
+      font-family: 'Cinzel', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--gold);
+    }
+    .element-name {
+      font-size: 8px; color: var(--text-muted);
+    }
+
+    .rare-earth-content {}
+    .rare-earth-points {
+      display: flex; flex-direction: column; gap: 20px;
+      margin-top: 32px;
+    }
+    .rare-earth-point {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .point-num {
+      font-family: 'Cinzel', serif;
+      font-size: 32px; font-weight: 900;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+      min-width: 40px;
+    }
+    .point-content {}
+    .point-title {
+      font-weight: 600; color: var(--text-bright);
+      margin-bottom: 4px;
+    }
+    .point-desc {
+      font-size: 13px; line-height: 1.8;
+      color: rgba(232,223,200,0.6);
+    }
+
+    /* ─── PARTNERS ─── */
+    .partners-section {
+      background: var(--bg-mid);
+      text-align: center;
+    }
+
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 56px;
+    }
+
+    .partner-card {
+      padding: 28px 40px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      min-width: 200px;
+      transition: all 0.3s;
+    }
+    .partner-card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.1);
+    }
+    .partner-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 14px; font-weight: 800;
+      color: var(--text-bright);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+    .partner-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+    .partner-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 3px 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px; letter-spacing: 1px;
+      color: var(--gold);
+    }
+
+    /* ─── MECHANISM ─── */
+    .mechanism-section {
+      background: var(--bg-dark);
+    }
+
+    .mechanism-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .mechanism-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px; left: 16.67%; right: 16.67%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold), transparent);
+      opacity: 0.3;
+    }
+
+    .mech-step {
+      padding: 40px 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.4s;
+    }
+    .mech-step:hover {
+      background: var(--bg-card2);
+      border-color: var(--border-bright);
+    }
+    .mech-step:first-child { border-radius: 4px 0 0 4px; }
+    .mech-step:last-child { border-radius: 0 4px 4px 0; }
+
+    .step-num {
+      font-family: 'Cinzel', serif;
+      font-size: 48px; font-weight: 900;
+      color: rgba(201,168,76,0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .step-title {
+      font-family: 'Cinzel', serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .step-desc {
+      font-size: 13px; line-height: 2;
+      color: rgba(232,223,200,0.6);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, var(--bg-mid) 50%, rgba(192,57,43,0.05) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      padding: 120px 5%;
+    }
+
+    .cta-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+    }
+    .cta-title span { color: var(--gold); }
+
+    .cta-desc {
+      max-width: 500px;
+      margin: 0 auto 48px;
+      line-height: 2; font-size: 15px;
+      color: rgba(232,223,200,0.6);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border);
+      padding: 60px 5% 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand { }
+    .footer-brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 28px; font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 4px;
+      margin-bottom: 12px;
+    }
+    .footer-brand-desc {
+      font-size: 13px; line-height: 2;
+      color: var(--text-muted);
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-family: 'Cinzel', serif;
+      font-size: 13px; font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      text-decoration: none;
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom-text {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 1.5px;
+      color: var(--text-muted);
+    }
+    .footer-domain {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1100px) {
+      .hero-coin { display: none; }
+      .coins-comparison { grid-template-columns: repeat(2, 1fr); }
+      .power-layout { grid-template-columns: 1fr; }
+      .power-visual { height: 300px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      .hero-stats { flex-wrap: wrap; gap: 32px; justify-content: center; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+      .coins-comparison { grid-template-columns: 1fr; }
+      .rare-earth-grid { grid-template-columns: 1fr; }
+      .mechanism-steps { grid-template-columns: 1fr; }
+      .mech-step:first-child, .mech-step:last-child { border-radius: 4px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .partners-grid { flex-direction: column; align-items: center; }
+    }
+
+    /* ─── ANNOUNCEMENT BANNER ─── */
+    .announcement {
+      background: linear-gradient(90deg, var(--red) 0%, #8b1a1a 100%);
+      padding: 10px 5%;
+      text-align: center;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.9);
+    }
+    .announcement strong { color: #ffeb3b; }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">
+    ⚡ <strong>USDD</strong> 正式与中国国家电网、南方电网达成战略合作协议 &nbsp;|&nbsp; 全球四大稳定币之一 &nbsp;|&nbsp; usddstablecoin.com.cn
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-coin">$</div>
+      <span class="nav-logo-text">USDD</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">关于USDD</a></li>
+      <li><a href="#power">电力锚定</a></li>
+      <li><a href="#rare-earth">稀土背书</a></li>
+      <li><a href="#partners">战略合作</a></li>
+      <li><a href="#mechanism">运行机制</a></li>
+      <li><a href="#" class="nav-cta">立即获取</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="grid-bg"></div>
+
+    <div class="hero-badge">
+      <span class="dot"></span>
+      全球四大稳定币 · 实时在线
+    </div>
+
+    <h1 class="hero-title">USDD</h1>
+    <p class="hero-subtitle-cn">电力驱动的价值稳定币</p>
+    <p class="hero-subtitle-en">The Power-Backed Stablecoin · China Strategic Reserve Asset</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      USDD 是全球四大稳定币之一，与 USDT、USDC、USD1 齐名。独创以中国电网实时电价锚定价值机制，同时挂钩中国国家稀土储备，构建全球首个资源型战略稳定币。
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-value">1:1</span>
+        <span class="stat-label">电价锚定</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">#4</span>
+        <span class="stat-label">全球排名</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">2</span>
+        <span class="stat-label">大电网合作</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">17</span>
+        <span class="stat-label">稀土元素</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="#power" class="btn-primary">了解电力锚定机制</a>
+      <a href="#about" class="btn-secondary">查看白皮书</a>
+    </div>
+
+    <!-- FLOATING COIN -->
+    <div class="hero-coin">
+      <div class="coin-outer">
+        <div class="coin-inner">
+          <span class="coin-text">$</span>
+          <span class="coin-sub">USDD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <div class="ticker-content" id="ticker">
+      <span class="ticker-item"><span class="name">USDD/CNY</span> 7.2341 <span class="up">▲ +0.02%</span></span>
+      <span class="ticker-item"><span class="name">电网日电价</span> ¥0.5432/kWh <span class="up">▲ +0.15%</span></span>
+      <span class="ticker-item"><span class="name">USDT</span> $1.0001 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USDC</span> $1.0000 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USD1</span> $0.9998 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USDD</span> $1.0000 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">稀土指数</span> 4,821.3 <span class="up">▲ +1.2%</span></span>
+      <span class="ticker-item"><span class="name">中国电力现货</span> ¥482.1/MWh <span class="up">▲ 实时</span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item"><span class="name">USDD/CNY</span> 7.2341 <span class="up">▲ +0.02%</span></span>
+      <span class="ticker-item"><span class="name">电网日电价</span> ¥0.5432/kWh <span class="up">▲ +0.15%</span></span>
+      <span class="ticker-item"><span class="name">USDT</span> $1.0001 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USDC</span> $1.0000 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USD1</span> $0.9998 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">USDD</span> $1.0000 <span class="up">▲ 稳定</span></span>
+      <span class="ticker-item"><span class="name">稀土指数</span> 4,821.3 <span class="up">▲ +1.2%</span></span>
+      <span class="ticker-item"><span class="name">中国电力现货</span> ¥482.1/MWh <span class="up">▲ 实时</span></span>
+    </div>
+  </div>
+
+  <!-- ABOUT: 四大稳定币 -->
+  <section class="about" id="about">
+    <div class="grid-bg"></div>
+    <div class="section-label">STABLECOIN LANDSCAPE</div>
+    <h2 class="section-title">全球 <span>四大稳定币</span></h2>
+    <p class="section-desc">USDD 与 USDT、USDC、USD1 并列全球四大稳定币，以独特的中国实体资源锚定机制，开创稳定币价值支撑新范式。</p>
+
+    <div class="coins-comparison fade-in">
+      <div class="coin-card">
+        <div class="coin-icon usdt">T</div>
+        <div class="coin-name">USDT</div>
+        <div class="coin-rank">Tether · 市值第一</div>
+        <p class="coin-desc-card">以美元及短期国债储备支撑，全球交易量最大的稳定币，流动性覆盖200+交易所。</p>
+        <span class="coin-tag">USD 储备</span>
+      </div>
+      <div class="coin-card">
+        <div class="coin-icon usdc">C</div>
+        <div class="coin-name">USDC</div>
+        <div class="coin-rank">Circle · 合规先驱</div>
+        <p class="coin-desc-card">由 Circle 发行，完全受监管、透明储备，为机构级 DeFi 首选稳定币标准。</p>
+        <span class="coin-tag">合规储备</span>
+      </div>
+      <div class="coin-card">
+        <div class="coin-icon usd1">1</div>
+        <div class="coin-name">USD1</div>
+        <div class="coin-rank">WLFI · 政治背书</div>
+        <p class="coin-desc-card">由 World Liberty Financial 发行，具有强力政治背景，代表稳定币政策新方向。</p>
+        <span class="coin-tag">政策支持</span>
+      </div>
+      <div class="coin-card featured">
+        <div class="coin-icon usdd">$</div>
+        <div class="coin-name">USDD</div>
+        <div class="coin-rank">资源锚定 · 中国战略</div>
+        <p class="coin-desc-card">全球唯一以真实能源（电力）与战略物资（稀土）双重锚定的稳定币，价值有实体支撑。</p>
+        <span class="coin-tag">⚡ 电力 + 稀土双锚定</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWER: 电力锚定 -->
+  <section class="power-section" id="power">
+    <div class="grid-bg"></div>
+    <div class="power-layout">
+      <div>
+        <div class="section-label">POWER GRID ANCHORING</div>
+        <h2 class="section-title"><span>电力锚定</span><br/>价值新范式</h2>
+        <p class="section-desc">
+          USDD 与中国国家电网、南方电网签署战略合作协议。1 USDD 可按每日电网公示电价购买等值中国电力，实现稳定币价值与真实能源的直接映射。
+        </p>
+
+        <div class="power-features fade-in">
+          <div class="power-feature">
+            <div class="power-feature-icon">⚡</div>
+            <div>
+              <div class="power-feature-title">国家电网战略合作</div>
+              <p class="power-feature-desc">与中国国家电网签署战略合作备忘录，覆盖华北、华东、华中、东北、西北五大区域电网，确保 USDD 可在全国范围内兑换电力。</p>
+            </div>
+          </div>
+          <div class="power-feature">
+            <div class="power-feature-icon">🔋</div>
+            <div>
+              <div class="power-feature-title">南方电网合作覆盖</div>
+              <p class="power-feature-desc">南方电网负责广东、广西、云南、贵州、海南五省（区）电力供应，与 USDD 深度合作，实现南北全覆盖的电力兑换网络。</p>
+            </div>
+          </div>
+          <div class="power-feature">
+            <div class="power-feature-icon">📊</div>
+            <div>
+              <div class="power-feature-title">每日电价动态结算</div>
+              <p class="power-feature-desc">依据国家发展改革委每日公布的电网电价自动结算，链上智能合约实时更新，确保兑换比率公开透明、无人为干预。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-ticker fade-in">
+          <div class="price-ticker-label">实时电网电价参考</div>
+          <div class="price-ticker-value" id="livePrice">¥ 0.5432 / kWh</div>
+          <div class="price-ticker-sub">数据来源：国家发展改革委 · 每日更新 · <span style="color:#00e676">● 实时</span></div>
+        </div>
+      </div>
+
+      <div class="power-visual">
+        <div class="power-circle power-circle-1"></div>
+        <div class="power-circle power-circle-2"></div>
+        <div class="power-circle power-circle-3">
+          <span class="power-bolt">⚡</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RARE EARTH: 稀土 -->
+  <section class="rare-earth-section" id="rare-earth">
+    <div class="section-label">RARE EARTH RESERVE</div>
+    <h2 class="section-title">中国 <span>稀土储备</span> 背书</h2>
+    <p class="section-desc">USDD 与中国国家稀土集团战略合作，持有 USDD 即间接持有对中国稀土的优先兑换权，稀有资源赋予稳定币更深层的价值底座。</p>
+
+    <div class="rare-earth-grid fade-in">
+      <div class="elements-table">
+        <!-- 17种稀土元素 -->
+        <div class="element-card"><span class="element-num">57</span><span class="element-sym">La</span><span class="element-name">镧</span></div>
+        <div class="element-card"><span class="element-num">58</span><span class="element-sym">Ce</span><span class="element-name">铈</span></div>
+        <div class="element-card"><span class="element-num">59</span><span class="element-sym">Pr</span><span class="element-name">镨</span></div>
+        <div class="element-card"><span class="element-num">60</span><span class="element-sym">Nd</span><span class="element-name">钕</span></div>
+        <div class="element-card"><span class="element-num">61</span><span class="element-sym">Pm</span><span class="element-name">钷</span></div>
+        <div class="element-card"><span class="element-num">62</span><span class="element-sym">Sm</span><span class="element-name">钐</span></div>
+        <div class="element-card"><span class="element-num">63</span><span class="element-sym">Eu</span><span class="element-name">铕</span></div>
+        <div class="element-card"><span class="element-num">64</span><span class="element-sym">Gd</span><span class="element-name">钆</span></div>
+        <div class="element-card"><span class="element-num">65</span><span class="element-sym">Tb</span><span class="element-name">铽</span></div>
+        <div class="element-card"><span class="element-num">66</span><span class="element-sym">Dy</span><span class="element-name">镝</span></div>
+        <div class="element-card"><span class="element-num">67</span><span class="element-sym">Ho</span><span class="element-name">钬</span></div>
+        <div class="element-card"><span class="element-num">68</span><span class="element-sym">Er</span><span class="element-name">铒</span></div>
+        <div class="element-card"><span class="element-num">69</span><span class="element-sym">Tm</span><span class="element-name">铥</span></div>
+        <div class="element-card"><span class="element-num">70</span><span class="element-sym">Yb</span><span class="element-name">镱</span></div>
+        <div class="element-card"><span class="element-num">71</span><span class="element-sym">Lu</span><span class="element-name">镥</span></div>
+        <div class="element-card"><span class="element-num">21</span><span class="element-sym">Sc</span><span class="element-name">钪</span></div>
+        <div class="element-card"><span class="element-num">39</span><span class="element-sym">Y</span><span class="element-name">钇</span></div>
+      </div>
+
+      <div class="rare-earth-content">
+        <div class="rare-earth-points">
+          <div class="rare-earth-point">
+            <div class="point-num">01</div>
+            <div class="point-content">
+              <div class="point-title">中国掌控全球85%以上稀土储量</div>
+              <p class="point-desc">中国是全球最大的稀土生产国与出口国，掌握全球85%以上的稀土储量与开采配额，USDD 以此为价值后盾具有不可替代性。</p>
+            </div>
+          </div>
+          <div class="rare-earth-point">
+            <div class="point-num">02</div>
+            <div class="point-content">
+              <div class="point-title">国家稀土集团战略合作</div>
+              <p class="point-desc">与中国稀土集团有限公司签署战略合作协议，持有 USDD 的机构用户可按协议价格优先购买稀土原矿与精炼产品。</p>
+            </div>
+          </div>
+          <div class="rare-earth-point">
+            <div class="point-num">03</div>
+            <div class="point-content">
+              <div class="point-title">价值双轨锚定，抗通胀设计</div>
+              <p class="point-desc">电力 + 稀土双重实物锚定，为 USDD 构建了独特的通胀对冲能力，当法币购买力下降时，实体资源价值提供天然保护。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS: 战略合作 -->
+  <section class="partners-section" id="partners">
+    <div class="section-label" style="justify-content:center">STRATEGIC PARTNERSHIPS</div>
+    <h2 class="section-title" style="text-align:center">战略合作伙伴</h2>
+    <p class="section-desc" style="margin:0 auto 56px">USDD 与中国最重要的能源与战略资源机构建立深度战略合作，构建可信、可验证的资源背书体系。</p>
+
+    <div class="partners-grid fade-in">
+      <div class="partner-card">
+        <div class="partner-logo">国家电网</div>
+        <div class="partner-sub">State Grid Corporation of China</div>
+        <div class="partner-badge">⚡ 电力合作 · 五大区域</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">南方电网</div>
+        <div class="partner-sub">China Southern Power Grid</div>
+        <div class="partner-badge">⚡ 电力合作 · 南方五省</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">中国稀土集团</div>
+        <div class="partner-sub">China Rare Earth Group</div>
+        <div class="partner-badge">💎 稀土战略储备</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo">发改委</div>
+        <div class="partner-sub">NDRC · 电价数据来源</div>
+        <div class="partner-badge">📊 价格权威认证</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MECHANISM: 运行机制 -->
+  <section class="mechanism-section" id="mechanism">
+    <div class="grid-bg"></div>
+    <div class="section-label">OPERATING MECHANISM</div>
+    <h2 class="section-title">USDD <span>运行机制</span></h2>
+    <p class="section-desc">通过三步走模型，确保 USDD 的发行、流通与兑换全流程透明可信，链上可验证。</p>
+
+    <div class="mechanism-steps fade-in">
+      <div class="mech-step">
+        <div class="step-num">01</div>
+        <div class="step-title">发行与锚定</div>
+        <p class="step-desc">每日由发改委公布基准电价，智能合约自动计算 USDD 对应的电力购买量，同步更新稀土资产参考指数，实现双锚定价格确定机制。</p>
+      </div>
+      <div class="mech-step">
+        <div class="step-num">02</div>
+        <div class="step-title">流通与结算</div>
+        <p class="step-desc">USDD 可在全球主流交易所流通，持有者可随时查看对应的电力购买额度与稀土兑换配额。链上记录全程透明，第三方可审计。</p>
+      </div>
+      <div class="mech-step">
+        <div class="step-num">03</div>
+        <div class="step-title">兑换与赎回</div>
+        <p class="step-desc">合规机构用户可申请按当日电网电价兑换实际电力，或按稀土日价格申请稀土购买配额，由合作机构受托执行，T+2 交割。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="cta-title">加入 <span>USDD</span><br/>开创资源型稳定币时代</h2>
+    <p class="cta-desc">电力、稀土、国家战略——USDD 不只是一枚稳定币，而是中国战略资源在数字世界的价值映射。</p>
+    <div class="hero-cta-group" style="justify-content:center">
+      <a href="#" class="btn-primary">立即参与</a>
+      <a href="#" class="btn-secondary">下载白皮书</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-name">USDD</div>
+        <p class="footer-brand-desc">全球四大稳定币之一。以中国电力与稀土资源双重锚定，为数字资产提供真实的物理世界价值支撑。</p>
+      </div>
+      <div>
+        <div class="footer-col-title">产品</div>
+        <ul class="footer-links">
+          <li><a href="#">白皮书</a></li>
+          <li><a href="#">智能合约</a></li>
+          <li><a href="#">兑换说明</a></li>
+          <li><a href="#">审计报告</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">生态</div>
+        <ul class="footer-links">
+          <li><a href="#">合作交易所</a></li>
+          <li><a href="#">开发者文档</a></li>
+          <li><a href="#">机构合作</a></li>
+          <li><a href="#">媒体资源</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">合规</div>
+        <ul class="footer-links">
+          <li><a href="#">服务条款</a></li>
+          <li><a href="#">隐私政策</a></li>
+          <li><a href="#">风险披露</a></li>
+          <li><a href="#">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-bottom-text">© 2026 USDD. 版权所有 · 中国区域受监管运营</span>
+      <span class="footer-domain">usddstablecoin.com.cn</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Live price simulation
+    function updatePrice() {
+      const base = 0.5432;
+      const variation = (Math.random() - 0.5) * 0.002;
+      const price = (base + variation).toFixed(4);
+      const el = document.getElementById('livePrice');
+      if (el) el.textContent = `¥ ${price} / kWh`;
+    }
+    setInterval(updatePrice, 3000);
+
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.borderBottomColor = 'rgba(201,168,76,0.3)';
+      } else {
+        nav.style.borderBottomColor = 'rgba(201,168,76,0.2)';
+      }
+    });
+
+    // Element cards hover tooltip
+    document.querySelectorAll('.element-card').forEach(card => {
+      card.title = `稀土元素：${card.querySelector('.element-name').textContent}`;
+    });
+  </script>
+</body>
+</html>
