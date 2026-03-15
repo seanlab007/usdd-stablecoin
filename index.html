@@ -2063,6 +2063,24 @@
     document.querySelectorAll('.element-card').forEach(card => {
       card.title = `稀土元素：${card.querySelector('.element-name').textContent}`;
     });
+
+    // ─── DARKMATTERBANK KEEP-ALIVE PING ───
+    // Render free tier sleeps after ~15 min of inactivity.
+    // We ping the site every 10 minutes via a no-cors fetch to keep it warm.
+    (function keepDarkMatterBankAlive() {
+      const TARGET = 'https://www.darkmatterbank.com/';
+      const INTERVAL_MS = 10 * 60 * 1000; // 10 minutes
+
+      function ping() {
+        fetch(TARGET, { method: 'GET', mode: 'no-cors', cache: 'no-store' })
+          .catch(() => {}); // silently ignore any network error
+      }
+
+      // First ping after 30 seconds (let page finish loading)
+      setTimeout(ping, 30 * 1000);
+      // Then every 10 minutes
+      setInterval(ping, INTERVAL_MS);
+    })();
   </script>
 </body>
 </html>
