@@ -1,27 +1,164 @@
+# ═══ USDD Stablecoin — robots.txt ═══
+# https://www.usddstablecoin.com.cn
+
+# ── Allow all compliant crawlers ──
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://www.usddstablecoin.com.cn/sitemap.xml
-
-# Crawl-delay
 Crawl-delay: 1
 
-# Allow all major search engines
+# ── Google ──
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: APIs-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+# ── Bing / Microsoft ──
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 0
 
-User-agent: Baiduspider
+User-agent: msnbot
 Allow: /
 
+User-agent: BingPreview
+Allow: /
+
+# ── Yahoo ──
+User-agent: Slurp
+Allow: /
+
+# ── DuckDuckGo ──
+User-agent: DuckDuckBot
+Allow: /
+
+# ── Baidu ──
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider-image
+Allow: /
+
+User-agent: Baiduspider-video
+Allow: /
+
+# ── Sogou ──
 User-agent: Sogou web spider
 Allow: /
 
+User-agent: Sogou inst spider
+Allow: /
+
+# ── 360 Search ──
 User-agent: 360Spider
 Allow: /
 
+# ── Yandex ──
 User-agent: YandexBot
 Allow: /
+Crawl-delay: 1
+
+User-agent: YandexImages
+Allow: /
+
+# ── Naver (Korea) ──
+User-agent: Yeti
+Allow: /
+
+# ── Daum (Korea) ──
+User-agent: Daum
+Allow: /
+
+# ── Cốc Cốc (Vietnam) ──
+User-agent: coccocbot
+Allow: /
+
+# ── Seznam (Czech) ──
+User-agent: SeznamBot
+Allow: /
+
+# ── Qwant (France) ──
+User-agent: Qwantify
+Allow: /
+
+# ── Brave ──
+User-agent: CCBot
+Allow: /
+
+# ── AI Crawlers (allow for AI search visibility) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ── Social Media crawlers ──
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+# ── Block bad bots ──
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ── Sitemap ──
+Sitemap: https://www.usddstablecoin.com.cn/sitemap.xml
+
+# ── IndexNow key endpoint ──
+# https://www.bing.com/indexnow
+# Key file: https://www.usddstablecoin.com.cn/usdd2026indexnowkey.txt
