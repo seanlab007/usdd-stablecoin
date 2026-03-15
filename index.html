@@ -998,22 +998,42 @@
       <li><a href="#power" data-zh="电力锚定" data-en="Power Peg">电力锚定</a></li>
       <li><a href="#rare-earth" data-zh="稀土背书" data-en="Rare Earth">稀土背书</a></li>
       <li><a href="#partners" data-zh="战略合作" data-en="Partners">战略合作</a></li>
-      <li><a href="#mechanism" data-zh="运行机制" data-en="Mechanism">运行机制</a></li>
-      <li><a href="#" class="nav-cta" data-zh="立即获取" data-en="Get Started">立即获取</a></li>
-      <li>
-        <button id="langToggle" onclick="toggleLang()" style="
+      <li><a href="#buy" data-zh="购买USDD" data-en="Buy USDD">购买USDD</a></li>
+      <li><a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="nav-cta" id="nav-buy-btn">立即购买</a></li>
+      <li style="position:relative;">
+        <button id="langMenuBtn" onclick="toggleLangMenu()" style="
           background: transparent;
           border: 1px solid var(--gold-border-bright);
           color: var(--gold);
-          padding: 5px 14px;
+          padding: 5px 12px;
           border-radius: 6px;
           font-size: 11px;
           font-weight: 600;
-          letter-spacing: 1px;
+          letter-spacing: 0.5px;
           cursor: pointer;
           font-family: 'Inter', sans-serif;
           transition: all 0.25s;
-        " onmouseover="this.style.background='var(--gold-pale)'" onmouseout="this.style.background='transparent'">EN</button>
+          display: flex; align-items: center; gap: 5px;
+        " onmouseover="this.style.background='var(--gold-pale)'" onmouseout="this.style.background='transparent'">
+          <span id="langFlag">🌐</span>
+          <span id="langLabel">中文</span>
+          <span style="font-size:8px;opacity:0.6;">▼</span>
+        </button>
+        <div id="langDropdown" style="
+          display: none;
+          position: absolute; top: calc(100% + 8px); right: 0;
+          background: var(--bg-card);
+          border: 1px solid var(--gold-border);
+          border-radius: 10px;
+          min-width: 180px;
+          z-index: 999;
+          box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+          padding: 6px;
+          max-height: 420px;
+          overflow-y: auto;
+        ">
+          <!-- filled by JS -->
+        </div>
       </li>
     </ul>
   </nav>
@@ -1056,8 +1076,8 @@
     </div>
 
     <div class="hero-cta-group">
-      <a href="#power" class="btn-primary" data-zh="了解电力锚定机制" data-en="Explore Power Mechanism">了解电力锚定机制</a>
-      <a href="#about" class="btn-secondary" data-zh="查看白皮书" data-en="Read Whitepaper">查看白皮书</a>
+      <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="btn-primary" id="hero-buy-btn">立即购买 USDD</a>
+      <a href="#about" class="btn-secondary" data-zh="了解更多" data-en="Learn More">了解更多</a>
     </div>
 
     <!-- FLOATING COIN -->
@@ -1297,13 +1317,120 @@
     </div>
   </section>
 
+  <!-- BUY USDD: darkmatterbank -->
+  <section id="buy" style="background:var(--bg-dark);padding:96px 6%;border-top:1px solid var(--border);">
+    <div class="grid-bg"></div>
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;" id="buy-label">购买渠道</div>
+      <h2 class="section-title" style="text-align:center;" id="buy-title">通过 <span>Dark Matter Bank</span> 购买 USDD</h2>
+      <p class="section-desc" style="margin:0 auto 48px;text-align:center;" id="buy-desc">Dark Matter Bank 是 USDD 官方发行与交易平台，支持全球用户以最低 1 美元起购买 USDD 稳定币，无国界、低门槛、即时到账。</p>
+
+      <!-- Bank Card -->
+      <div style="
+        background: linear-gradient(135deg, #1a2234 0%, #1e2a3d 100%);
+        border: 1px solid var(--gold-border);
+        border-radius: 20px;
+        padding: 48px 52px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 24px 72px rgba(0,0,0,0.4), 0 0 60px rgba(212,168,67,0.05);
+      ">
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+        <div style="position:absolute;top:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,0.06) 0%,transparent 70%);"></div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:32px;">
+          <!-- Left: Bank Info -->
+          <div style="text-align:left;">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
+              <div style="
+                width:56px;height:56px;border-radius:14px;
+                background:linear-gradient(135deg,#1e2a3d,#0f172a);
+                border:1px solid var(--gold-border);
+                display:flex;align-items:center;justify-content:center;
+                font-size:26px;
+              ">🏦</div>
+              <div>
+                <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:800;color:var(--gold);letter-spacing:1px;">Dark Matter Bank</div>
+                <div style="font-size:11px;color:var(--text-muted);letter-spacing:0.5px;margin-top:2px;" id="bank-tagline">USDD 官方发行平台 · 全球无国界加密银行</div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px;">
+              <span style="padding:5px 12px;background:rgba(212,168,67,0.1);border:1px solid var(--gold-border);border-radius:100px;font-size:10px;color:var(--gold);font-weight:600;letter-spacing:0.5px;" id="badge-min">💵 最低 $1 起购</span>
+              <span style="padding:5px 12px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:100px;font-size:10px;color:#10b981;font-weight:600;letter-spacing:0.5px;" id="badge-instant">⚡ 即时到账</span>
+              <span style="padding:5px 12px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:100px;font-size:10px;color:var(--electric-blue);font-weight:600;letter-spacing:0.5px;" id="badge-global">🌍 全球无国界</span>
+            </div>
+
+            <div style="display:flex;gap:28px;flex-wrap:wrap;">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--gold);font-weight:700;">15+</div>
+                <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;margin-top:2px;" id="stat-coins">支持稳定币</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);font-weight:700;">ERC-20</div>
+                <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;margin-top:2px;" id="stat-chain">链上协议</div>
+              </div>
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--electric-blue);font-weight:700;">1:1</div>
+                <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;margin-top:2px;" id="stat-peg">USD 锚定</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: CTA -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+            <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" style="
+              display:inline-flex;align-items:center;gap:10px;
+              padding:16px 36px;
+              background:var(--gold);
+              color:var(--bg-dark);
+              border-radius:12px;
+              font-family:'Inter',sans-serif;
+              font-size:15px;font-weight:700;
+              letter-spacing:0.5px;
+              text-decoration:none;
+              transition:all 0.25s;
+              box-shadow:0 8px 32px rgba(212,168,67,0.3);
+              white-space:nowrap;
+            " onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 16px 48px rgba(212,168,67,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 32px rgba(212,168,67,0.3)'">
+              <span style="font-size:18px;">🏦</span>
+              <span id="buy-btn-text">立即购买 USDD</span>
+            </a>
+            <div style="font-size:11px;color:var(--text-muted);text-align:center;" id="buy-contract-label">
+              合约地址: <span style="font-family:'JetBrains Mono',monospace;color:var(--gold-dim);font-size:10px;">0x2981...0f5e9</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Row -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;">
+        <div style="padding:20px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;text-align:left;">
+          <div style="font-size:22px;margin-bottom:10px;">📈</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--text-bright);margin-bottom:6px;" id="feat1-title">代币化国债</div>
+          <p style="font-size:11px;color:var(--text-dim);line-height:1.7;" id="feat1-desc">4周至30年期美国国债代币化，1美元起投，随时赎回。</p>
+        </div>
+        <div style="padding:20px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;text-align:left;">
+          <div style="font-size:22px;margin-bottom:10px;">🌐</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--text-bright);margin-bottom:6px;" id="feat2-title">多币种稳定币</div>
+          <p style="font-size:11px;color:var(--text-dim);line-height:1.7;" id="feat2-desc">支持 USDD、EURD、GBPD、IRRD 等15+稳定币，覆盖全球主要货币。</p>
+        </div>
+        <div style="padding:20px;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;text-align:left;">
+          <div style="font-size:22px;margin-bottom:10px;">🛡️</div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--text-bright);margin-bottom:6px;" id="feat3-title">战乱地区保险</div>
+          <p style="font-size:11px;color:var(--text-dim);line-height:1.7;" id="feat3-desc">覆盖伊朗、乌克兰等战争风险地区，无国界金融保障方案。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <h2 class="cta-title"><span data-zh="加入 USDD 开创资源型稳定币时代" data-en="Join USDD · Pioneer the Resource-Backed Stablecoin Era">加入 <span>USDD</span><br/>开创资源型稳定币时代</span></h2>
     <p class="cta-desc" data-zh="电力、稀土、国家战略——USDD 不只是一枚稳定币，而是中国战略资源在数字世界的价值映射。" data-en="Electricity. Rare earth. National strategy. USDD is more than a stablecoin — it's China's strategic resources mapped into the digital world.">电力、稀土、国家战略——USDD 不只是一枚稳定币，而是中国战略资源在数字世界的价值映射。</p>
     <div class="hero-cta-group" style="justify-content:center">
-      <a href="#" class="btn-primary" data-zh="立即参与" data-en="Get Started">立即参与</a>
-      <a href="#" class="btn-secondary" data-zh="下载白皮书" data-en="Download Whitepaper">下载白皮书</a>
+      <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="btn-primary" id="cta-buy-btn">立即购买 USDD</a>
+      <a href="#faq" class="btn-secondary" data-zh="了解更多" data-en="Learn More">了解更多</a>
     </div>
   </section>
 
@@ -1409,31 +1536,498 @@
   </footer>
 
   <script>
-    // ─── LANGUAGE SWITCHING ───
+    // ══════════════════════════════════════════════════
+    // 18-LANGUAGE SYSTEM
+    // ══════════════════════════════════════════════════
+    const LANGUAGES = [
+      { code: 'zh', label: '中文',    flag: '🇨🇳', name: '简体中文' },
+      { code: 'en', label: 'EN',      flag: '🇺🇸', name: 'English' },
+      { code: 'fa', label: 'FA',      flag: '🇮🇷', name: 'فارسی' },
+      { code: 'ru', label: 'RU',      flag: '🇷🇺', name: 'Русский' },
+      { code: 'ar', label: 'AR',      flag: '🇸🇦', name: 'العربية' },
+      { code: 'es', label: 'ES',      flag: '🇪🇸', name: 'Español' },
+      { code: 'pt', label: 'PT',      flag: '🇧🇷', name: 'Português' },
+      { code: 'fr', label: 'FR',      flag: '🇫🇷', name: 'Français' },
+      { code: 'de', label: 'DE',      flag: '🇩🇪', name: 'Deutsch' },
+      { code: 'ja', label: 'JA',      flag: '🇯🇵', name: '日本語' },
+      { code: 'ko', label: 'KO',      flag: '🇰🇷', name: '한국어' },
+      { code: 'hi', label: 'HI',      flag: '🇮🇳', name: 'हिन्दी' },
+      { code: 'tr', label: 'TR',      flag: '🇹🇷', name: 'Türkçe' },
+      { code: 'vi', label: 'VI',      flag: '🇻🇳', name: 'Tiếng Việt' },
+      { code: 'id', label: 'ID',      flag: '🇮🇩', name: 'Bahasa Indonesia' },
+      { code: 'th', label: 'TH',      flag: '🇹🇭', name: 'ภาษาไทย' },
+      { code: 'uk', label: 'UK',      flag: '🇺🇦', name: 'Українська' },
+      { code: 'it', label: 'IT',      flag: '🇮🇹', name: 'Italiano' },
+    ];
+
+    // ── TRANSLATIONS (all non-zh/en languages) ──────────────────────
+    // zh and en are already in data-zh / data-en attributes.
+    // Extra languages override specific IDs / data keys.
+    const TRANS = {
+      fa: {
+        // nav
+        'nav-buy-btn':    'خرید USDD',
+        // announcement
+        'STABLECOIN LANDSCAPE': 'چشم‌انداز استیبل‌کوین',
+        // hero badge
+        heroDesc: 'USDD یکی از چهار استیبل‌کوین برتر جهان است، در کنار USDT، USDC و USD1. پیشگام مکانیزم لنگرگاه ارزشی بر اساس قیمت برق شبکه‌ی چین، همراه با پشتوانه ذخایر خاک‌های کمیاب چین.',
+        heroTitle: 'استیبل‌کوین قدرت‌محور',
+        heroBadge: '۴ استیبل‌کوین برتر جهان · آنلاین',
+        buyBtnText: 'خرید فوری USDD',
+        buyDesc: 'Dark Matter Bank پلتفرم رسمی صدور و معامله USDD است. با حداقل ۱ دلار، فوری و بدون مرز بخرید.',
+        bankTagline: 'پلتفرم رسمی USDD · بانک رمزنگاری بدون مرز',
+        feat1Title: 'اوراق خزانه توکنیزه‌شده',
+        feat1Desc: 'اوراق خزانه‌داری آمریکا از ۴ هفته تا ۳۰ سال، از ۱ دلار، قابل بازخرید فوری.',
+        feat2Title: 'چند استیبل‌کوین',
+        feat2Desc: 'پشتیبانی از USDD، EURD، GBPD، IRRD و بیش از ۱۵ استیبل‌کوین در ارزهای اصلی جهان.',
+        feat3Title: 'بیمه مناطق جنگی',
+        feat3Desc: 'پوشش مناطق پرخطر مانند ایران و اوکراین، راه‌حل مالی بدون مرز.',
+        buyLabel: 'کانال خرید',
+        buyTitleHtml: 'خرید از <span>Dark Matter Bank</span>',
+        navBuy: 'خرید USDD',
+      },
+      ru: {
+        'nav-buy-btn': 'Купить USDD',
+        heroDesc: 'USDD — один из четырёх ведущих стейблкоинов мира, наряду с USDT, USDC и USD1. Первый стейблкоин, привязанный к ценам на электроэнергию Китая и редкоземельным резервам.',
+        heroTitle: 'Стейблкоин на энергии',
+        heroBadge: 'Топ-4 мировых стейблкоина · В сети',
+        buyBtnText: 'Купить USDD сейчас',
+        buyDesc: 'Dark Matter Bank — официальная платформа выпуска и торговли USDD. Покупайте от $1, мгновенно, без границ.',
+        bankTagline: 'Официальная платформа USDD · Крипто-банк без границ',
+        feat1Title: 'Токенизированные казначейские облигации',
+        feat1Desc: 'Казначейские облигации США на 4 недели–30 лет, от $1, мгновенный выкуп.',
+        feat2Title: 'Мультивалютные стейблкоины',
+        feat2Desc: 'Поддержка USDD, EURD, GBPD, IRRD и 15+ стейблкоинов.',
+        feat3Title: 'Страхование в зонах войны',
+        feat3Desc: 'Охват Ирана, Украины и других зон риска — финансовая защита без границ.',
+        buyLabel: 'Канал покупки',
+        buyTitleHtml: 'Купить через <span>Dark Matter Bank</span>',
+        navBuy: 'Купить USDD',
+      },
+      ar: {
+        'nav-buy-btn': 'شراء USDD',
+        heroDesc: 'USDD هي واحدة من أكبر أربعة عملات مستقرة في العالم، إلى جانب USDT وUSDC وUSD1. رائدة في آلية ربط القيمة بأسعار الكهرباء الصينية واحتياطيات المعادن النادرة.',
+        heroTitle: 'العملة المستقرة المدعومة بالطاقة',
+        heroBadge: 'أكبر 4 عملات مستقرة عالمياً · مباشر',
+        buyBtnText: 'شراء USDD الآن',
+        buyDesc: 'Dark Matter Bank هو المنصة الرسمية لإصدار وتداول USDD. اشتر من $1 فقط، فوري وبلا حدود.',
+        bankTagline: 'المنصة الرسمية لـ USDD · بنك كريبتو بلا حدود',
+        feat1Title: 'سندات خزانة مُرمَّزة',
+        feat1Desc: 'سندات الخزانة الأمريكية من 4 أسابيع حتى 30 سنة، من $1، استرداد فوري.',
+        feat2Title: 'عملات مستقرة متعددة',
+        feat2Desc: 'دعم USDD وEURD وGBPD وIRRD وأكثر من 15 عملة مستقرة.',
+        feat3Title: 'تأمين مناطق الحرب',
+        feat3Desc: 'تغطية إيران وأوكرانيا وغيرها من مناطق الخطر — حماية مالية بلا حدود.',
+        buyLabel: 'قناة الشراء',
+        buyTitleHtml: 'شراء عبر <span>Dark Matter Bank</span>',
+        navBuy: 'شراء USDD',
+      },
+      es: {
+        'nav-buy-btn': 'Comprar USDD',
+        heroDesc: 'USDD es una de las cuatro principales stablecoins del mundo, junto con USDT, USDC y USD1. Pionera en un mecanismo de anclaje de valor vinculado a los precios de energía de China y reservas de tierras raras.',
+        heroTitle: 'La Stablecoin Respaldada por Energía',
+        heroBadge: 'Top 4 Stablecoins Globales · En Vivo',
+        buyBtnText: 'Comprar USDD Ahora',
+        buyDesc: 'Dark Matter Bank es la plataforma oficial de emisión y comercio de USDD. Compra desde $1, al instante, sin fronteras.',
+        bankTagline: 'Plataforma Oficial USDD · Banco Cripto Sin Fronteras',
+        feat1Title: 'Bonos del Tesoro Tokenizados',
+        feat1Desc: 'Bonos del Tesoro de EE.UU. de 4 semanas a 30 años, desde $1, redención inmediata.',
+        feat2Title: 'Múltiples Stablecoins',
+        feat2Desc: 'Soporte para USDD, EURD, GBPD, IRRD y más de 15 stablecoins.',
+        feat3Title: 'Seguro en Zonas de Guerra',
+        feat3Desc: 'Cobertura de Irán, Ucrania y otras zonas de riesgo — protección financiera sin fronteras.',
+        buyLabel: 'Canal de Compra',
+        buyTitleHtml: 'Comprar en <span>Dark Matter Bank</span>',
+        navBuy: 'Comprar USDD',
+      },
+      pt: {
+        'nav-buy-btn': 'Comprar USDD',
+        heroDesc: 'USDD é uma das quatro principais stablecoins do mundo, ao lado de USDT, USDC e USD1. Pioneira no mecanismo de ancoragem de valor ligado aos preços de energia da China e reservas de terras raras.',
+        heroTitle: 'A Stablecoin Lastreada em Energia',
+        heroBadge: 'Top 4 Stablecoins Globais · Ao Vivo',
+        buyBtnText: 'Comprar USDD Agora',
+        buyDesc: 'Dark Matter Bank é a plataforma oficial de emissão e negociação de USDD. Compre a partir de $1, instantaneamente, sem fronteiras.',
+        bankTagline: 'Plataforma Oficial USDD · Banco Cripto Sem Fronteiras',
+        feat1Title: 'Títulos do Tesouro Tokenizados',
+        feat1Desc: 'Títulos do Tesouro dos EUA de 4 semanas a 30 anos, a partir de $1, resgate imediato.',
+        feat2Title: 'Múltiplas Stablecoins',
+        feat2Desc: 'Suporte para USDD, EURD, GBPD, IRRD e mais de 15 stablecoins.',
+        feat3Title: 'Seguro em Zonas de Guerra',
+        feat3Desc: 'Cobertura de Irã, Ucrânia e outras zonas de risco — proteção financeira sem fronteiras.',
+        buyLabel: 'Canal de Compra',
+        buyTitleHtml: 'Comprar no <span>Dark Matter Bank</span>',
+        navBuy: 'Comprar USDD',
+      },
+      fr: {
+        'nav-buy-btn': 'Acheter USDD',
+        heroDesc: "USDD est l'un des quatre principaux stablecoins mondiaux, aux côtés d'USDT, USDC et USD1. Pionnier dans le mécanisme d'ancrage de valeur lié aux prix de l'énergie en Chine et aux réserves de terres rares.",
+        heroTitle: "Le Stablecoin Adossé à l'Énergie",
+        heroBadge: 'Top 4 Stablecoins Mondiaux · En Direct',
+        buyBtnText: 'Acheter USDD Maintenant',
+        buyDesc: "Dark Matter Bank est la plateforme officielle d'émission et de trading de USDD. Achetez à partir de 1$, instantanément, sans frontières.",
+        bankTagline: 'Plateforme Officielle USDD · Banque Crypto Sans Frontières',
+        feat1Title: 'Bons du Trésor Tokenisés',
+        feat1Desc: "Bons du Trésor américain de 4 semaines à 30 ans, à partir de 1$, rachat immédiat.",
+        feat2Title: 'Multi-Stablecoins',
+        feat2Desc: 'Support USDD, EURD, GBPD, IRRD et plus de 15 stablecoins.',
+        feat3Title: 'Assurance Zone de Guerre',
+        feat3Desc: "Couverture Iran, Ukraine et autres zones à risque — protection financière sans frontières.",
+        buyLabel: "Canal d'Achat",
+        buyTitleHtml: 'Acheter sur <span>Dark Matter Bank</span>',
+        navBuy: 'Acheter USDD',
+      },
+      de: {
+        'nav-buy-btn': 'USDD Kaufen',
+        heroDesc: 'USDD ist eine der vier führenden Stablecoins der Welt, neben USDT, USDC und USD1. Wegweisend beim Wertbindungsmechanismus an chinesische Energiepreise und Seltenerdenreserven.',
+        heroTitle: 'Der Energie-gedeckte Stablecoin',
+        heroBadge: 'Top-4 Globale Stablecoins · Live',
+        buyBtnText: 'USDD Jetzt Kaufen',
+        buyDesc: 'Dark Matter Bank ist die offizielle Ausgabe- und Handelsplattform für USDD. Kaufen ab $1, sofort, grenzenlos.',
+        bankTagline: 'Offizielle USDD-Plattform · Grenzenlose Krypto-Bank',
+        feat1Title: 'Tokenisierte Staatsanleihen',
+        feat1Desc: 'US-Staatsanleihen von 4 Wochen bis 30 Jahre, ab $1, sofortige Einlösung.',
+        feat2Title: 'Multi-Stablecoins',
+        feat2Desc: 'Unterstützung für USDD, EURD, GBPD, IRRD und über 15 Stablecoins.',
+        feat3Title: 'Kriegszonenversicherung',
+        feat3Desc: 'Abdeckung Iran, Ukraine und andere Risikogebiete — grenzenloser Finanzschutz.',
+        buyLabel: 'Kaufkanal',
+        buyTitleHtml: 'Kaufen über <span>Dark Matter Bank</span>',
+        navBuy: 'USDD Kaufen',
+      },
+      ja: {
+        'nav-buy-btn': 'USDDを購入',
+        heroDesc: 'USDDはUST、USDC、USD1と並ぶ世界四大ステーブルコインの一つです。中国の電力価格と希土類備蓄に基づく独自の価値アンカーメカニズムを先駆けて採用しています。',
+        heroTitle: 'エネルギー担保ステーブルコイン',
+        heroBadge: '世界トップ4ステーブルコイン · ライブ',
+        buyBtnText: 'USDDを今すぐ購入',
+        buyDesc: 'Dark Matter BankはUSDDの公式発行・取引プラットフォームです。最低$1から即時・ボーダーレスで購入可能。',
+        bankTagline: 'USDD公式プラットフォーム · ボーダーレス暗号銀行',
+        feat1Title: 'トークン化米国債',
+        feat1Desc: '4週間〜30年の米国債をトークン化、$1から即時償還可能。',
+        feat2Title: 'マルチステーブルコイン',
+        feat2Desc: 'USDD、EURD、GBPD、IRRDなど15以上のステーブルコインをサポート。',
+        feat3Title: '紛争地域保険',
+        feat3Desc: 'イラン、ウクライナなどのリスク地域をカバー——ボーダーレスな金融保護。',
+        buyLabel: '購入チャンネル',
+        buyTitleHtml: '<span>Dark Matter Bank</span>で購入',
+        navBuy: 'USDD購入',
+      },
+      ko: {
+        'nav-buy-btn': 'USDD 구매',
+        heroDesc: 'USDD는 USDT, USDC, USD1과 함께 세계 4대 스테이블코인 중 하나입니다. 중국의 전력 가격 및 희토류 비축량에 연동된 혁신적인 가치 앵커 메커니즘을 선도합니다.',
+        heroTitle: '에너지 담보 스테이블코인',
+        heroBadge: '글로벌 TOP 4 스테이블코인 · 라이브',
+        buyBtnText: '지금 USDD 구매',
+        buyDesc: 'Dark Matter Bank는 USDD의 공식 발행·거래 플랫폼입니다. 최소 $1부터 즉시, 국경 없이 구매 가능.',
+        bankTagline: 'USDD 공식 플랫폼 · 국경 없는 크립토 뱅크',
+        feat1Title: '토큰화 미국채',
+        feat1Desc: '4주~30년 미국 국채 토큰화, $1부터 즉시 환매 가능.',
+        feat2Title: '멀티 스테이블코인',
+        feat2Desc: 'USDD, EURD, GBPD, IRRD 등 15개 이상 스테이블코인 지원.',
+        feat3Title: '전쟁 지역 보험',
+        feat3Desc: '이란, 우크라이나 등 위험 지역 커버 — 국경 없는 금융 보호.',
+        buyLabel: '구매 채널',
+        buyTitleHtml: '<span>Dark Matter Bank</span>에서 구매',
+        navBuy: 'USDD 구매',
+      },
+      hi: {
+        'nav-buy-btn': 'USDD खरीदें',
+        heroDesc: 'USDD USDT, USDC, USD1 के साथ दुनिया के शीर्ष 4 स्टेबलकॉइन में से एक है। चीन की बिजली कीमतों और दुर्लभ पृथ्वी भंडार से जुड़े मूल्य-एंकर तंत्र का अग्रदूत।',
+        heroTitle: 'ऊर्जा-समर्थित स्टेबलकॉइन',
+        heroBadge: 'वैश्विक शीर्ष 4 स्टेबलकॉइन · लाइव',
+        buyBtnText: 'अभी USDD खरीदें',
+        buyDesc: 'Dark Matter Bank USDD की आधिकारिक जारीकर्ता और ट्रेडिंग प्लेटफ़ॉर्म है। $1 से खरीदें, तुरंत, बिना सीमाओं के।',
+        bankTagline: 'USDD आधिकारिक प्लेटफ़ॉर्म · बॉर्डरलेस क्रिप्टो बैंक',
+        feat1Title: 'टोकनाइज्ड ट्रेजरी बॉन्ड',
+        feat1Desc: '4 सप्ताह से 30 साल के US ट्रेजरी, $1 से, तत्काल मोचन।',
+        feat2Title: 'मल्टी-स्टेबलकॉइन',
+        feat2Desc: 'USDD, EURD, GBPD, IRRD और 15+ स्टेबलकॉइन का समर्थन।',
+        feat3Title: 'युद्ध क्षेत्र बीमा',
+        feat3Desc: 'ईरान, यूक्रेन और अन्य जोखिम क्षेत्र — सीमाहीन वित्तीय सुरक्षा।',
+        buyLabel: 'खरीद चैनल',
+        buyTitleHtml: '<span>Dark Matter Bank</span> से खरीदें',
+        navBuy: 'USDD खरीदें',
+      },
+      tr: {
+        'nav-buy-btn': 'USDD Satın Al',
+        heroDesc: "USDD, USDT, USDC ve USD1 ile birlikte dünyanın en büyük 4 stabilcoininden biridir. Çin'in elektrik fiyatlarına ve nadir toprak rezervlerine bağlı değer-çıpa mekanizmasında öncüdür.",
+        heroTitle: 'Enerji Destekli Stabilcoin',
+        heroBadge: 'Global Top 4 Stabilcoin · Canlı',
+        buyBtnText: 'USDD Hemen Satın Al',
+        buyDesc: "Dark Matter Bank, USDD'nin resmi ihraç ve ticaret platformudur. $1'dan itibaren anında, sınırsız satın alın.",
+        bankTagline: 'USDD Resmi Platform · Sınırsız Kripto Bankası',
+        feat1Title: 'Tokenize Hazine Tahvilleri',
+        feat1Desc: "4 haftadan 30 yıla US Hazine bonoları, $1'dan itibaren anında itfa.",
+        feat2Title: 'Çoklu Stabilcoinler',
+        feat2Desc: "USDD, EURD, GBPD, IRRD ve 15+ stabilcoin desteği.",
+        feat3Title: 'Savaş Bölgesi Sigortası',
+        feat3Desc: 'İran, Ukrayna ve diğer risk bölgeleri — sınırsız finansal koruma.',
+        buyLabel: 'Satın Alma Kanalı',
+        buyTitleHtml: "<span>Dark Matter Bank</span>'tan Satın Al",
+        navBuy: 'USDD Satın Al',
+      },
+      vi: {
+        'nav-buy-btn': 'Mua USDD',
+        heroDesc: 'USDD là một trong bốn stablecoin hàng đầu thế giới, cùng với USDT, USDC và USD1. Tiên phong trong cơ chế neo giá trị vào giá điện Trung Quốc và dự trữ đất hiếm.',
+        heroTitle: 'Stablecoin Được Bảo Chứng bởi Năng Lượng',
+        heroBadge: 'Top 4 Stablecoin Toàn Cầu · Trực Tuyến',
+        buyBtnText: 'Mua USDD Ngay',
+        buyDesc: 'Dark Matter Bank là nền tảng phát hành và giao dịch USDD chính thức. Mua từ $1, tức thì, không biên giới.',
+        bankTagline: 'Nền Tảng Chính Thức USDD · Ngân Hàng Crypto Không Biên Giới',
+        feat1Title: 'Trái Phiếu Kho Bạc Tokenize',
+        feat1Desc: 'Trái phiếu Mỹ 4 tuần đến 30 năm, từ $1, hoàn tiền ngay.',
+        feat2Title: 'Đa Stablecoin',
+        feat2Desc: 'Hỗ trợ USDD, EURD, GBPD, IRRD và 15+ stablecoin.',
+        feat3Title: 'Bảo Hiểm Vùng Chiến Tranh',
+        feat3Desc: 'Bảo hiểm Iran, Ukraine và các vùng rủi ro — bảo vệ tài chính không biên giới.',
+        buyLabel: 'Kênh Mua',
+        buyTitleHtml: 'Mua qua <span>Dark Matter Bank</span>',
+        navBuy: 'Mua USDD',
+      },
+      id: {
+        'nav-buy-btn': 'Beli USDD',
+        heroDesc: 'USDD adalah salah satu dari empat stablecoin terkemuka di dunia, bersama USDT, USDC, dan USD1. Pelopor mekanisme penahan nilai yang terkait dengan harga listrik Tiongkok dan cadangan tanah langka.',
+        heroTitle: 'Stablecoin Didukung Energi',
+        heroBadge: 'Top 4 Stablecoin Global · Live',
+        buyBtnText: 'Beli USDD Sekarang',
+        buyDesc: 'Dark Matter Bank adalah platform resmi penerbitan dan perdagangan USDD. Beli mulai $1, instan, tanpa batas.',
+        bankTagline: 'Platform Resmi USDD · Bank Kripto Tanpa Batas',
+        feat1Title: 'Obligasi Treasury Tokenisasi',
+        feat1Desc: 'Obligasi Treasury AS 4 minggu hingga 30 tahun, dari $1, penebusan instan.',
+        feat2Title: 'Multi-Stablecoin',
+        feat2Desc: 'Dukungan USDD, EURD, GBPD, IRRD dan 15+ stablecoin.',
+        feat3Title: 'Asuransi Zona Perang',
+        feat3Desc: 'Cakupan Iran, Ukraina dan zona risiko lainnya — perlindungan keuangan tanpa batas.',
+        buyLabel: 'Saluran Pembelian',
+        buyTitleHtml: 'Beli di <span>Dark Matter Bank</span>',
+        navBuy: 'Beli USDD',
+      },
+      th: {
+        'nav-buy-btn': 'ซื้อ USDD',
+        heroDesc: 'USDD เป็นหนึ่งในสี่ stablecoin ชั้นนำของโลก ร่วมกับ USDT, USDC และ USD1 บุกเบิกกลไกการยึดมูลค่ากับราคาไฟฟ้าของจีนและสำรองแร่หายาก',
+        heroTitle: 'Stablecoin ที่หนุนหลังด้วยพลังงาน',
+        heroBadge: 'Top 4 Stablecoins โลก · ออนไลน์',
+        buyBtnText: 'ซื้อ USDD ตอนนี้',
+        buyDesc: 'Dark Matter Bank คือแพลตฟอร์มการออกและซื้อขาย USDD อย่างเป็นทางการ ซื้อตั้งแต่ $1 ทันที ไร้พรมแดน',
+        bankTagline: 'แพลตฟอร์มอย่างเป็นทางการ USDD · ธนาคารคริปโตไร้พรมแดน',
+        feat1Title: 'พันธบัตรรัฐบาลสหรัฐแบบโทเคน',
+        feat1Desc: 'พันธบัตรรัฐบาลสหรัฐ 4 สัปดาห์ถึง 30 ปี จาก $1 ไถ่ถอนทันที',
+        feat2Title: 'หลาย Stablecoin',
+        feat2Desc: 'รองรับ USDD, EURD, GBPD, IRRD และกว่า 15 stablecoin',
+        feat3Title: 'ประกันภัยเขตสงคราม',
+        feat3Desc: 'ครอบคลุมอิหร่าน ยูเครน และเขตความเสี่ยงอื่นๆ — ปกป้องการเงินไร้พรมแดน',
+        buyLabel: 'ช่องทางซื้อ',
+        buyTitleHtml: 'ซื้อผ่าน <span>Dark Matter Bank</span>',
+        navBuy: 'ซื้อ USDD',
+      },
+      uk: {
+        'nav-buy-btn': 'Купити USDD',
+        heroDesc: 'USDD — один з чотирьох провідних стейблкоїнів світу, поряд з USDT, USDC та USD1. Першопрохідець у механізмі прив\'язки вартості до цін на електроенергію в Китаї та рідкоземельних запасів.',
+        heroTitle: 'Стейблкоїн на Енергії',
+        heroBadge: 'Топ-4 Світових Стейблкоїни · Онлайн',
+        buyBtnText: 'Купити USDD Зараз',
+        buyDesc: 'Dark Matter Bank — офіційна платформа випуску та торгівлі USDD. Купуйте від $1, миттєво, без кордонів.',
+        bankTagline: 'Офіційна платформа USDD · Крипто-банк без кордонів',
+        feat1Title: 'Токенізовані держоблігації',
+        feat1Desc: 'Казначейські облігації США від 4 тижнів до 30 років, від $1, миттєве погашення.',
+        feat2Title: 'Мульти-стейблкоїни',
+        feat2Desc: 'Підтримка USDD, EURD, GBPD, IRRD та понад 15 стейблкоїнів.',
+        feat3Title: 'Страхування у зонах конфлікту',
+        feat3Desc: 'Покриття Ірану, України та інших зон ризику — фінансовий захист без кордонів.',
+        buyLabel: 'Канал покупки',
+        buyTitleHtml: 'Купити через <span>Dark Matter Bank</span>',
+        navBuy: 'Купити USDD',
+      },
+      it: {
+        'nav-buy-btn': 'Acquista USDD',
+        heroDesc: "USDD è una delle quattro principali stablecoin al mondo, insieme a USDT, USDC e USD1. Pioniera nel meccanismo di ancoraggio del valore ai prezzi dell'energia in Cina e alle riserve di terre rare.",
+        heroTitle: "La Stablecoin Garantita dall'Energia",
+        heroBadge: 'Top 4 Stablecoin Globali · Live',
+        buyBtnText: 'Acquista USDD Ora',
+        buyDesc: "Dark Matter Bank è la piattaforma ufficiale di emissione e trading di USDD. Acquista da $1, istantaneamente, senza confini.",
+        bankTagline: 'Piattaforma Ufficiale USDD · Banca Crypto Senza Confini',
+        feat1Title: 'Titoli di Stato Tokenizzati',
+        feat1Desc: 'Treasury USA da 4 settimane a 30 anni, da $1, rimborso immediato.',
+        feat2Title: 'Multi-Stablecoin',
+        feat2Desc: 'Supporto USDD, EURD, GBPD, IRRD e oltre 15 stablecoin.',
+        feat3Title: 'Assicurazione Zone di Guerra',
+        feat3Desc: 'Copertura Iran, Ucraina e altre zone a rischio — protezione finanziaria senza confini.',
+        buyLabel: 'Canale di Acquisto',
+        buyTitleHtml: 'Acquista su <span>Dark Matter Bank</span>',
+        navBuy: 'Acquista USDD',
+      },
+    };
+
+    // ── RTL languages
+    const RTL_LANGS = ['ar', 'fa'];
+
+    // ── Current language state
     let currentLang = localStorage.getItem('usdd_lang') || 'zh';
 
-    function toggleLang() {
-      currentLang = currentLang === 'zh' ? 'en' : 'zh';
-      localStorage.setItem('usdd_lang', currentLang);
+    // ── Build the dropdown
+    function buildLangDropdown() {
+      const dd = document.getElementById('langDropdown');
+      dd.innerHTML = '';
+      LANGUAGES.forEach(lang => {
+        const item = document.createElement('div');
+        item.style.cssText = `
+          display: flex; align-items: center; gap: 10px;
+          padding: 9px 12px; border-radius: 7px;
+          cursor: pointer; transition: background 0.15s;
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; color: var(--text-dim);
+          ${currentLang === lang.code ? 'background: var(--gold-pale); color: var(--gold);' : ''}
+        `;
+        item.innerHTML = `<span style="font-size:16px;">${lang.flag}</span><span style="flex:1;">${lang.name}</span>${currentLang === lang.code ? '<span style="font-size:10px;color:var(--gold);">✓</span>' : ''}`;
+        item.onmouseover = () => { if (currentLang !== lang.code) item.style.background = 'rgba(255,255,255,0.05)'; };
+        item.onmouseout  = () => { if (currentLang !== lang.code) item.style.background = 'transparent'; };
+        item.onclick = () => switchLang(lang.code);
+        dd.appendChild(item);
+      });
+    }
+
+    function toggleLangMenu() {
+      const dd = document.getElementById('langDropdown');
+      const isOpen = dd.style.display !== 'none';
+      dd.style.display = isOpen ? 'none' : 'block';
+      if (!isOpen) buildLangDropdown();
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#langMenuBtn') && !e.target.closest('#langDropdown')) {
+        const dd = document.getElementById('langDropdown');
+        if (dd) dd.style.display = 'none';
+      }
+    });
+
+    function switchLang(code) {
+      currentLang = code;
+      localStorage.setItem('usdd_lang', code);
+      document.getElementById('langDropdown').style.display = 'none';
       applyLang();
     }
 
     function applyLang() {
-      const isEn = currentLang === 'en';
-      const btn = document.getElementById('langToggle');
-      if (btn) btn.textContent = isEn ? '中文' : 'EN';
+      const lang = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0];
 
-      // Update <html lang>
-      document.documentElement.lang = isEn ? 'en' : 'zh-CN';
+      // Update button display
+      const btn = document.getElementById('langMenuBtn');
+      document.getElementById('langFlag').textContent = lang.flag;
+      document.getElementById('langLabel').textContent = lang.label;
 
-      // Switch all [data-zh] / [data-en] elements
-      document.querySelectorAll('[data-zh]').forEach(el => {
-        const text = isEn ? el.getAttribute('data-en') : el.getAttribute('data-zh');
-        if (text !== null) el.innerHTML = text;
-      });
+      // RTL / LTR
+      document.documentElement.dir = RTL_LANGS.includes(currentLang) ? 'rtl' : 'ltr';
+      document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : currentLang;
 
-      // Special: section titles that wrap a <span> - rebuild them
-      // (handled inline via data-zh/data-en on the parent <span> wrappers)
+      if (currentLang === 'zh') {
+        // Apply zh from data-zh
+        document.querySelectorAll('[data-zh]').forEach(el => {
+          const t = el.getAttribute('data-zh');
+          if (t !== null) el.innerHTML = t;
+        });
+        applyBuySection('zh');
+      } else if (currentLang === 'en') {
+        // Apply en from data-en
+        document.querySelectorAll('[data-zh]').forEach(el => {
+          const t = el.getAttribute('data-en');
+          if (t !== null) el.innerHTML = t;
+        });
+        applyBuySection('en');
+      } else {
+        // Apply en first as base, then overlay with specific translations
+        document.querySelectorAll('[data-zh]').forEach(el => {
+          const t = el.getAttribute('data-en');
+          if (t !== null) el.innerHTML = t;
+        });
+        applyBuySection(currentLang);
+      }
+
+      // Update nav buy button
+      const navBuyBtn = document.getElementById('nav-buy-btn');
+      if (navBuyBtn) {
+        if (currentLang === 'zh') navBuyBtn.textContent = '立即购买';
+        else if (currentLang === 'en') navBuyBtn.textContent = 'Buy USDD';
+        else if (TRANS[currentLang] && TRANS[currentLang].navBuy) navBuyBtn.textContent = TRANS[currentLang].navBuy;
+      }
+    }
+
+    function applyBuySection(lang) {
+      const t = TRANS[lang] || {};
+      // Hero buttons
+      const heroBuy = document.getElementById('hero-buy-btn');
+      const ctaBuy  = document.getElementById('cta-buy-btn');
+      const buyBtn  = document.getElementById('buy-btn-text');
+
+      if (lang === 'zh') {
+        if (heroBuy) heroBuy.textContent = '立即购买 USDD';
+        if (ctaBuy)  ctaBuy.textContent  = '立即购买 USDD';
+        if (buyBtn)  buyBtn.textContent  = '立即购买 USDD';
+        _setId('buy-label',   '购买渠道');
+        _setId('buy-title',   '通过 <span>Dark Matter Bank</span> 购买 USDD');
+        _setId('buy-desc',    'Dark Matter Bank 是 USDD 官方发行与交易平台，支持全球用户以最低 1 美元起购买 USDD 稳定币，无国界、低门槛、即时到账。');
+        _setId('bank-tagline','USDD 官方发行平台 · 全球无国界加密银行');
+        _setId('badge-min',   '💵 最低 $1 起购');
+        _setId('badge-instant','⚡ 即时到账');
+        _setId('badge-global', '🌍 全球无国界');
+        _setId('stat-coins',  '支持稳定币');
+        _setId('stat-chain',  '链上协议');
+        _setId('stat-peg',    'USD 锚定');
+        _setId('buy-contract-label', '合约地址: <span style="font-family:\'JetBrains Mono\',monospace;color:var(--gold-dim);font-size:10px;">0x2981...0f5e9</span>');
+        _setId('feat1-title', '代币化国债');
+        _setId('feat1-desc',  '4周至30年期美国国债代币化，1美元起投，随时赎回。');
+        _setId('feat2-title', '多币种稳定币');
+        _setId('feat2-desc',  '支持 USDD、EURD、GBPD、IRRD 等15+稳定币，覆盖全球主要货币。');
+        _setId('feat3-title', '战乱地区保险');
+        _setId('feat3-desc',  '覆盖伊朗、乌克兰等战争风险地区，无国界金融保障方案。');
+      } else if (lang === 'en') {
+        if (heroBuy) heroBuy.textContent = 'Buy USDD Now';
+        if (ctaBuy)  ctaBuy.textContent  = 'Buy USDD Now';
+        if (buyBtn)  buyBtn.textContent  = 'Buy USDD Now';
+        _setId('buy-label',   'Purchase Channel');
+        _setId('buy-title',   'Buy via <span>Dark Matter Bank</span>');
+        _setId('buy-desc',    'Dark Matter Bank is the official USDD issuance and trading platform. Buy from just $1, instantly, with no borders.');
+        _setId('bank-tagline','Official USDD Platform · Borderless Crypto Bank');
+        _setId('badge-min',   '💵 From $1');
+        _setId('badge-instant','⚡ Instant');
+        _setId('badge-global', '🌍 Borderless');
+        _setId('stat-coins',  'Stablecoins');
+        _setId('stat-chain',  'On-Chain');
+        _setId('stat-peg',    'USD Peg');
+        _setId('buy-contract-label', 'Contract: <span style="font-family:\'JetBrains Mono\',monospace;color:var(--gold-dim);font-size:10px;">0x2981...0f5e9</span>');
+        _setId('feat1-title', 'Tokenized Treasury Bonds');
+        _setId('feat1-desc',  'US Treasury bonds 4 weeks to 30 years, from $1, instant redemption.');
+        _setId('feat2-title', 'Multi-Stablecoins');
+        _setId('feat2-desc',  'Support USDD, EURD, GBPD, IRRD and 15+ stablecoins across major currencies.');
+        _setId('feat3-title', 'War Zone Insurance');
+        _setId('feat3-desc',  'Coverage for Iran, Ukraine and other risk zones — borderless financial protection.');
+      } else if (t.buyBtnText) {
+        if (heroBuy) heroBuy.textContent = t.buyBtnText;
+        if (ctaBuy)  ctaBuy.textContent  = t.buyBtnText;
+        if (buyBtn)  buyBtn.textContent  = t.buyBtnText;
+        if (t.buyLabel)    _setId('buy-label',    t.buyLabel);
+        if (t.buyTitleHtml)_setId('buy-title',    t.buyTitleHtml);
+        if (t.buyDesc)     _setId('buy-desc',     t.buyDesc);
+        if (t.bankTagline) _setId('bank-tagline', t.bankTagline);
+        if (t.feat1Title)  _setId('feat1-title',  t.feat1Title);
+        if (t.feat1Desc)   _setId('feat1-desc',   t.feat1Desc);
+        if (t.feat2Title)  _setId('feat2-title',  t.feat2Title);
+        if (t.feat2Desc)   _setId('feat2-desc',   t.feat2Desc);
+        if (t.feat3Title)  _setId('feat3-title',  t.feat3Title);
+        if (t.feat3Desc)   _setId('feat3-desc',   t.feat3Desc);
+        _setId('badge-min',    '💵 $1+');
+        _setId('badge-instant','⚡ Instant');
+        _setId('badge-global', '🌍 Global');
+        _setId('stat-coins',  'Stablecoins');
+        _setId('stat-chain',  'On-Chain');
+        _setId('stat-peg',    'USD Peg');
+        _setId('buy-contract-label', 'Contract: <span style="font-family:\'JetBrains Mono\',monospace;color:var(--gold-dim);font-size:10px;">0x2981...0f5e9</span>');
+      }
+    }
+
+    function _setId(id, html) {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = html;
     }
 
     // Init on load
