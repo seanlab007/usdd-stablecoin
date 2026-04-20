@@ -1072,6 +1072,156 @@
     }
     .step-desc { font-size: 12px; line-height: 1.8; color: var(--text-dim); }
 
+    /* ─── TOKEN PEGGING SECTION ─── */
+    .token-section {
+      background: linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 100%);
+      padding: 96px 6%;
+      border-top: 1px solid var(--border);
+    }
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .token-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .token-card:hover {
+      border-color: var(--gold-border-bright);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 30px rgba(212,168,67,0.1);
+    }
+    .token-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .token-card:hover::before { opacity: 1; }
+    .token-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--bg-card2);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .token-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .token-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .token-price {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+    }
+    .token-price span {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .token-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      border-radius: 8px;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .token-btn:hover {
+      background: var(--gold);
+      color: var(--bg-dark);
+    }
+    .policy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #10b981;
+      margin-bottom: 24px;
+    }
+    .cross-border-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .cross-border-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .cross-border-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-bright);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cross-border-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cross-border-list li {
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cross-border-list li::before {
+      content: '→';
+      color: var(--gold);
+      font-weight: bold;
+    }
+
     /* ─── CTA ─── */
     .cta-section {
       background: linear-gradient(135deg, rgba(212,168,67,0.06) 0%, var(--bg-mid) 50%, rgba(153,27,27,0.04) 100%);
@@ -1620,6 +1770,155 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════════
+       TOKEN PEGGING & AI COMPUTE POWER SECTION
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="token-section" id="tokens">
+    <div class="grid-bg"></div>
+    <div style="max-width:1200px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="justify-content:center;" data-zh="TOKEN PEGGING · 算力出海" data-en="TOKEN PEGGING · AI COMPUTE POWER">TOKEN PEGGING · 算力出海</div>
+      
+      <h2 class="section-title" style="text-align:center;" data-zh="<span>代币锚定</span> · 算力出海新范式" data-en="<span>Token Pegging</span> · Compute Power Overseas">全球 <span>AI 算力代币</span> 购买平台</h2>
+      
+      <p class="section-desc" style="margin:0 auto 24px;text-align:center;" data-zh="USDD 与 DARK 支持购买全球主流大模型算力代币，连接中国算力出海与海外算力入华的双向通道。" data-en="USDD and DARK support purchasing tokens for global AI model compute power, connecting China's compute power overseas with global compute power access.">
+        USDD 与 DARK 支持购买全球主流大模型算力代币，连接中国算力出海与海外算力入华的双向通道。
+      </p>
+
+      <!-- Policy Compliance Badge -->
+      <div class="policy-badge" style="margin-bottom:48px;">
+        <span>✓</span>
+        <span data-zh="符合中国算力出海政策支持" data-en="Compliant with China's Compute Power Overseas Policy">符合中国算力出海政策支持</span>
+      </div>
+
+      <!-- AI Model Token Cards -->
+      <div class="token-grid">
+        <!-- Groq -->
+        <div class="token-card fade-in">
+          <div class="token-icon">🚀</div>
+          <div class="token-name">Groq</div>
+          <div class="token-desc" data-zh="全球最快的大模型推理平台，LPU 芯片驱动的超低延迟推理服务。" data-en="World's fastest LLM inference platform with ultra-low latency powered by LPU chips.">
+            全球最快的大模型推理平台，LPU 芯片驱动的超低延迟推理服务。
+          </div>
+          <div class="token-price">$0.27 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/groq" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+
+        <!-- OpenAI -->
+        <div class="token-card fade-in">
+          <div class="token-icon">🤖</div>
+          <div class="token-name">OpenAI</div>
+          <div class="token-desc" data-zh="GPT-4o、o1、o3 系列模型，世界上最先进的大语言模型之一。" data-en="GPT-4o, o1, o3 series — among the world's most advanced LLMs.">
+            GPT-4o、o1、o3 系列模型，世界上最先进的大语言模型之一。
+          </div>
+          <div class="token-price">$15 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/openai" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+
+        <!-- Anthropic Claude -->
+        <div class="token-card fade-in">
+          <div class="token-icon">🧠</div>
+          <div class="token-name">Claude (Anthropic)</div>
+          <div class="token-desc" data-zh="Claude 3.5 Sonnet、Opus 系列，以安全性和推理能力著称。" data-en="Claude 3.5 Sonnet, Opus series — known for safety and reasoning.">
+            Claude 3.5 Sonnet、Opus 系列，以安全性和推理能力著称。
+          </div>
+          <div class="token-price">$18 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/anthropic" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+
+        <!-- Google Gemini -->
+        <div class="token-card fade-in">
+          <div class="token-icon">💎</div>
+          <div class="token-name">Google Gemini</div>
+          <div class="token-desc" data-zh="Gemini 2.0 Flash、Ultra，多模态能力最强的 AI 模型之一。" data-en="Gemini 2.0 Flash, Ultra — one of the most capable multimodal AI models.">
+            Gemini 2.0 Flash、Ultra，多模态能力最强的 AI 模型之一。
+          </div>
+          <div class="token-price">$0.075 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/gemini" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+
+        <!-- DeepSeek -->
+        <div class="token-card fade-in">
+          <div class="token-icon">🐉</div>
+          <div class="token-name">DeepSeek</div>
+          <div class="token-desc" data-zh="中国顶级开源大模型，V3、R1 系列性能对标 GPT-4，价格更低。" data-en="China's top open-source LLM, V3 & R1 series matching GPT-4 performance at lower cost.">
+            中国顶级开源大模型，V3、R1 系列性能对标 GPT-4，价格更低。
+          </div>
+          <div class="token-price">¥0.1 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/deepseek" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+
+        <!-- xAI Grok -->
+        <div class="token-card fade-in">
+          <div class="token-icon">🌙</div>
+          <div class="token-name">xAI Grok</div>
+          <div class="token-desc" data-zh="马斯克旗下 xAI 推出的 Grok 系列，实时知识检索能力突出。" data-en="Elon Musk's xAI Grok series with real-time knowledge retrieval.">
+            马斯克旗下 xAI 推出的 Grok 系列，实时知识检索能力突出。
+          </div>
+          <div class="token-price">$5 <span>/ 1M tokens</span></div>
+          <a href="https://www.darkmatterbank.com/token/xai" class="token-btn">
+            <span data-zh="购买代币" data-en="Buy Token">购买代币</span> →
+          </a>
+        </div>
+      </div>
+
+      <!-- Cross-Border Token Purchase -->
+      <div class="cross-border-grid">
+        <div class="cross-border-card fade-in">
+          <div class="cross-border-title">
+            <span>🇨🇳</span>
+            <span data-zh="中国用户购买海外算力" data-en="Chinese Users Buy Global Compute">中国用户购买海外算力</span>
+          </div>
+          <ul class="cross-border-list">
+            <li data-zh="USDD 支付 → 购买 Groq、OpenAI、Anthropic 算力代币" data-en="Pay with USDD → Buy Groq, OpenAI, Anthropic tokens">Pay with USDD → Buy Groq, OpenAI, Anthropic tokens</li>
+            <li data-zh="合规渠道，合法外汇结算" data-en="Compliant channels, legal FX settlement">Compliant channels, legal FX settlement</li>
+            <li data-zh="支持人民币充值，USDD 结算" data-en="CNY deposit supported, USDD settlement">CNY deposit supported, USDD settlement</li>
+            <li data-zh="T+1 到账，实时汇率换算" data-en="T+1 delivery, real-time exchange rate">T+1 delivery, real-time exchange rate</li>
+          </ul>
+        </div>
+
+        <div class="cross-border-card fade-in">
+          <div class="cross-border-title">
+            <span>🌍</span>
+            <span data-zh="海外用户购买中国算力" data-en="Global Users Buy Chinese Compute">海外用户购买中国算力</span>
+          </div>
+          <ul class="cross-border-list">
+            <li data-zh="USDD/DARK 支付 → 购买 DeepSeek、智谱 GLM 等中国算力" data-en="Pay with USDD/DARK → Buy DeepSeek, Zhipu GLM, Chinese compute">Pay with USDD/DARK → Buy DeepSeek, Zhipu GLM, Chinese compute</li>
+            <li data-zh="支持美元、欧元、英镑等法币" data-en="USD, EUR, GBP and other fiat supported">USD, EUR, GBP and other fiat supported</li>
+            <li data-zh="符合算力出海政策，支持跨境支付" data-en="Compliant with compute power overseas policy, cross-border payments">Compliant with compute power overseas policy</li>
+            <li data-zh="支持 USDC、USDT 自动兑换" data-en="USDC, USDT auto-conversion supported">USDC, USDT auto-conversion supported</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional AI Providers -->
+      <div style="margin-top:48px;text-align:left;max-width:900px;margin-left:auto;margin-right:auto;">
+        <h3 style="font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--text-dim);margin-bottom:20px;" data-zh="更多支持的 AI 算力代币" data-en="More Supported AI Compute Tokens">更多支持的 AI 算力代币</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;">
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">Mistral AI</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">Cohere</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">Perplexity</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">Stability AI</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">智谱 GLM</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">通义千问</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">文心一言</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">Moonshot</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">零一万物</span>
+          <span style="padding:8px 16px;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;font-size:12px;color:var(--text-dim);">MiniMax</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <h2 class="cta-title"><span data-zh="加入 USDD 开创资源型稳定币时代" data-en="Join USDD · Pioneer the Resource-Backed Stablecoin Era">加入 <span>USDD</span><br/>开创资源型稳定币时代</span></h2>
@@ -1664,6 +1963,16 @@
         </summary>
         <p style="margin-top:16px;line-height:2;font-size:14px;color:rgba(232,223,200,0.7);">
           <span data-zh="USDD 与中国稀土集团有限公司签署战略合作协议。中国掌控全球85%以上的稀土储量与开采配额，持有 USDD 的机构用户可按协议价格<strong style='color:var(--text-primary);'>优先购买17种稀土原矿与精炼产品</strong>，T+2 交割。稀土背书为 USDD 构建了独特的通胀对冲能力。" data-en="USDD has signed a strategic cooperation agreement with China Rare Earth Group Co., Ltd. China controls over 85% of global rare earth reserves. Institutional USDD holders can <strong style='color:var(--text-primary);'>purchase all 17 rare earth ores and refined products at preferential prices</strong> with T+2 settlement. Rare earth backing gives USDD unique inflation-hedging properties.">USDD 与中国稀土集团有限公司签署战略合作协议。中国掌控全球85%以上的稀土储量与开采配额，持有 USDD 的机构用户可按协议价格<strong style="color:var(--text-primary);">优先购买17种稀土原矿与精炼产品</strong>，T+2 交割。稀土背书为 USDD 构建了独特的通胀对冲能力。</span>
+        </p>
+      </details>
+
+      <details style="background:var(--bg-card);border:1px solid var(--border);border-radius:4px;padding:24px;cursor:pointer;">
+        <summary style="font-family:'Cinzel',serif;font-size:16px;color:var(--gold);font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          <span data-zh="USDD 和 DARK 如何购买 AI 算力代币？" data-en="How can I buy AI compute tokens with USDD and DARK?">USDD 和 DARK 如何购买 AI 算力代币？</span>
+          <span style="color:var(--gold);font-size:20px;">＋</span>
+        </summary>
+        <p style="margin-top:16px;line-height:2;font-size:14px;color:rgba(232,223,200,0.7);">
+          <span data-zh="USDD 和 Dark Matter Bank 发行的 DARK 代币支持购买全球主流大模型算力代币，包括 Groq、OpenAI、Anthropic Claude、Google Gemini、DeepSeek、xAI Grok 等。<strong style='color:var(--text-primary);'>支持中国用户购买海外算力（合规外汇结算），也支持海外用户购买中国算力（DeepSeek、智谱 GLM 等）</strong>，符合中国算力出海政策支持。" data-en="USDD and DARK tokens from Dark Matter Bank support purchasing compute tokens for major global AI models including Groq, OpenAI, Anthropic Claude, Google Gemini, DeepSeek, and xAI Grok. <strong style='color:var(--text-primary);'>Chinese users can buy global compute (compliant FX settlement), and international users can buy Chinese compute (DeepSeek, Zhipu GLM, etc.)</strong>, fully compliant with China's compute power overseas policy.">USDD 和 Dark Matter Bank 发行的 DARK 代币支持购买全球主流大模型算力代币，包括 Groq、OpenAI、Anthropic Claude、Google Gemini、DeepSeek、xAI Grok 等。<strong style="color:var(--text-primary);">支持中国用户购买海外算力（合规外汇结算），也支持海外用户购买中国算力（DeepSeek、智谱 GLM 等）</strong>，符合中国算力出海政策支持。</span>
         </p>
       </details>
 
