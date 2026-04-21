@@ -398,8 +398,8 @@
           localStorage.removeItem('remembered_email');
         }
         
-        showSuccess('登录成功！正在跳转...');
-        setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+        showSuccess('登录成功！正在跳转到 AI 算力市场...');
+        setTimeout(() => { window.location.href = 'https://www.darkmatterbank.com/token'; }, 1000);
       } catch (err) {
         showError(err.message || '登录失败');
       } finally {
@@ -540,8 +540,8 @@
         });
         if (error) throw error;
         
-        showSuccess('登录成功！正在跳转...');
-        setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+        showSuccess('登录成功！正在跳转到 AI 算力市场...');
+        setTimeout(() => { window.location.href = 'https://www.darkmatterbank.com/token'; }, 1000);
       } catch (err) {
         showError(err.message || '验证码错误');
       } finally {
