@@ -667,6 +667,29 @@
       border-color: var(--gold-border);
       color: var(--gold);
     }
+    .btn-ai-compute {
+      padding: 13px 28px;
+      background: linear-gradient(135deg, #00D4AA 0%, #00A389 100%);
+      color: #0a0a0a;
+      border: none; border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(0,212,170,0.3);
+      animation: aiPulse 2s ease-in-out infinite;
+    }
+    @keyframes aiPulse {
+      0%,100% { box-shadow: 0 4px 20px rgba(0,212,170,0.3); }
+      50% { box-shadow: 0 4px 35px rgba(0,212,170,0.55); }
+    }
+    .btn-ai-compute:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 35px rgba(0,212,170,0.5);
+    }
 
     /* COIN VISUAL */
     .hero-coin {
@@ -1346,7 +1369,7 @@
       <li><a href="#rare-earth" data-zh="稀土背书" data-en="Rare Earth">稀土背书</a></li>
       <li><a href="#partners" data-zh="战略合作" data-en="Partners">战略合作</a></li>
       <li><a href="#buy" data-zh="购买USDD" data-en="Buy USDD">购买USDD</a></li>
-      <li><a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" data-zh="AI算力" data-en="AI Compute" style="color: #00D4AA;">AI算力</a></li>
+      <li><a href="#ai-compute" data-zh="AI算力" data-en="AI Compute" style="color:#00D4AA;">🔥 AI算力</a></li>
       <li><a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="nav-cta" id="nav-buy-btn">立即购买</a></li>
       <li style="position:relative;">
         <button id="langMenuBtn" onclick="toggleLangMenu()" style="
@@ -1424,6 +1447,7 @@
     </div>
 
     <div class="hero-cta-group">
+      <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" class="btn-ai-compute" id="hero-ai-btn">🔥 AI算力购买</a>
       <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="btn-primary" id="hero-buy-btn">立即购买 USDD</a>
       <a href="#about" class="btn-secondary" data-zh="了解更多" data-en="Learn More">了解更多</a>
     </div>
@@ -1549,6 +1573,44 @@
         <div class="power-circle power-circle-3">
           <span class="power-bolt">⚡</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI COMPUTE: AI算力专区 -->
+  <section class="ai-compute-section" id="ai-compute" style="background:linear-gradient(180deg,var(--bg-mid) 0%,rgba(0,212,170,0.05) 100%);padding:100px 5%;border-top:1px solid var(--border);">
+    <div class="grid-bg" style="opacity:0.5;"></div>
+    <div style="text-align:center;max-width:900px;margin:0 auto;">
+      <div class="section-label" data-zh="GLOBAL ESSENTIALS" data-en="GLOBAL ESSENTIALS" style="color:#00D4AA;">🔥 AI算力 · 全球刚需</div>
+      <h2 class="section-title" style="font-size:clamp(28px,4vw,48px);margin-bottom:20px;">
+        <span data-zh="AI算力" data-en="AI Compute" style="color:#00D4AA;">AI算力</span>
+        <span data-zh=" — 数字时代的石油" data-en=" — Digital Oil"> — 数字时代的石油</span>
+      </h2>
+      <p style="font-size:18px;line-height:1.8;color:var(--text-dim);margin-bottom:48px;" data-zh="2024年全球AI算力市场规模突破2800亿美元，年增长率超35%。GPU服务器短缺、云计算成本飙升——AI算力已成为最稀缺的全球资源。USDD与DarkMatterBank携手，让您轻松参与这场算力革命。" data-en="The global AI compute market exceeded $280 billion in 2024, growing 35%+ annually. GPU shortages and soaring cloud costs have made AI compute the world's most sought-after resource. USDD and DarkMatterBank let you join the AI revolution effortlessly.">
+        2024年全球AI算力市场规模突破2800亿美元，年增长率超35%。GPU服务器短缺、云计算成本飙升——AI算力已成为最稀缺的全球资源。USDD与DarkMatterBank携手，让您轻松参与这场算力革命。
+      </p>
+      
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:52px;">
+        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:16px;">🚀</div>
+          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">$280B+</div>
+          <div style="font-size:14px;color:var(--text-dim);" data-zh="2024年全球AI市场规模" data-en="Global AI Market 2024">2024年全球AI市场规模</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:16px;">⚡</div>
+          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">35%+</div>
+          <div style="font-size:14px;color:var(--text-dim);" data-zh="年复合增长率" data-en="Annual Growth Rate">年复合增长率</div>
+        </div>
+        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
+          <div style="font-size:48px;margin-bottom:16px;">💎</div>
+          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">H100</div>
+          <div style="font-size:14px;color:var(--text-dim);" data-zh="顶级GPU缺口超60%" data-en="Top GPU Shortage >60%">顶级GPU缺口超60%</div>
+        </div>
+      </div>
+
+      <div class="hero-cta-group" style="justify-content:center;gap:20px;">
+        <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" class="btn-ai-compute" style="padding:16px 40px;font-size:16px;">🔥 立即购买AI算力</a>
+        <a href="https://www.darkmatterbank.com/token/groq" target="_blank" rel="noopener" style="padding:16px 32px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.4);color:#00D4AA;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;" data-zh="查看支持的算力" data-en="View Supported Compute">查看支持的算力 →</a>
       </div>
     </div>
   </section>
@@ -1943,6 +2005,7 @@
     <h2 class="cta-title"><span data-zh="加入 USDD 开创资源型稳定币时代" data-en="Join USDD · Pioneer the Resource-Backed Stablecoin Era">加入 <span>USDD</span><br/>开创资源型稳定币时代</span></h2>
     <p class="cta-desc" data-zh="电力、稀土、国家战略——USDD 不只是一枚稳定币，而是中国战略资源在数字世界的价值映射。" data-en="Electricity. Rare earth. National strategy. USDD is more than a stablecoin — it's China's strategic resources mapped into the digital world.">电力、稀土、国家战略——USDD 不只是一枚稳定币，而是中国战略资源在数字世界的价值映射。</p>
     <div class="hero-cta-group" style="justify-content:center">
+      <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" class="btn-ai-compute" id="cta-ai-btn">🔥 AI算力购买</a>
       <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" class="btn-primary" id="cta-buy-btn">立即购买 USDD</a>
       <a href="#faq" class="btn-secondary" data-zh="了解更多" data-en="Learn More">了解更多</a>
     </div>
