@@ -690,6 +690,11 @@
       transform: translateY(-2px) scale(1.02);
       box-shadow: 0 8px 35px rgba(0,212,170,0.5);
     }
+    .compute-plan-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      border-color: rgba(0,212,170,0.5) !important;
+    }
 
     /* COIN VISUAL */
     .hero-coin {
@@ -1577,40 +1582,161 @@
     </div>
   </section>
 
-  <!-- AI COMPUTE: AI算力专区 -->
-  <section class="ai-compute-section" id="ai-compute" style="background:linear-gradient(180deg,var(--bg-mid) 0%,rgba(0,212,170,0.05) 100%);padding:100px 5%;border-top:1px solid var(--border);">
-    <div class="grid-bg" style="opacity:0.5;"></div>
-    <div style="text-align:center;max-width:900px;margin:0 auto;">
-      <div class="section-label" data-zh="GLOBAL ESSENTIALS" data-en="GLOBAL ESSENTIALS" style="color:#00D4AA;">🔥 AI Compute · Global Essentials</div>
-      <h2 class="section-title" style="font-size:clamp(28px,4vw,48px);margin-bottom:20px;">
-        <span data-zh="AI算力" data-en="AI Compute" style="color:#00D4AA;">AI Compute</span>
-        <span data-zh=" — 数字时代的石油" data-en=" — Digital Oil"> — Digital Oil</span>
-      </h2>
-      <p style="font-size:18px;line-height:1.8;color:var(--text-dim);margin-bottom:48px;" data-zh="2024年全球AI算力市场规模突破2800亿美元，年增长率超35%。GPU服务器短缺、云计算成本飙升——AI算力已成为最稀缺的全球资源。USDD与DarkMatterBank携手，让您轻松参与这场算力革命。" data-en="The global AI compute market exceeded $280 billion in 2024, growing 35%+ annually. GPU shortages and soaring cloud costs have made AI compute the world's most sought-after resource. USDD and DarkMatterBank let you join the AI revolution effortlessly.">
-        2024年全球AI算力市场规模突破2800亿美元，年增长率超35%。GPU服务器短缺、云计算成本飙升——AI算力已成为最稀缺的全球资源。USDD与DarkMatterBank携手，让您轻松参与这场算力革命。
-      </p>
-      
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:52px;">
-        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
-          <div style="font-size:48px;margin-bottom:16px;">🚀</div>
-          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">$280B+</div>
-          <div style="font-size:14px;color:var(--text-dim);" data-zh="2024年全球AI市场规模" data-en="Global AI Market 2024">2024年全球AI市场规模</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
-          <div style="font-size:48px;margin-bottom:16px;">⚡</div>
-          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">35%+</div>
-          <div style="font-size:14px;color:var(--text-dim);" data-zh="年复合增长率" data-en="Annual Growth Rate">年复合增长率</div>
-        </div>
-        <div style="background:var(--bg-card);border:1px solid rgba(0,212,170,0.3);border-radius:16px;padding:32px 24px;text-align:center;">
-          <div style="font-size:48px;margin-bottom:16px;">💎</div>
-          <div style="font-size:32px;font-weight:700;color:#00D4AA;margin-bottom:8px;">H100</div>
-          <div style="font-size:14px;color:var(--text-dim);" data-zh="顶级GPU缺口超60%" data-en="Top GPU Shortage >60%">顶级GPU缺口超60%</div>
+  <!-- AI COMPUTE: AI算力购买专区 -->
+  <section id="ai-compute" style="background:linear-gradient(180deg,var(--bg-dark) 0%,rgba(0,212,170,0.04) 50%,var(--bg-dark) 100%);padding:110px 5% 90px;border-top:1px solid var(--border);position:relative;overflow:hidden;">
+    <div class="grid-bg" style="opacity:0.4;"></div>
+    <!-- 背景装饰光晕 -->
+    <div style="position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,170,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,170,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+    <div style="max-width:1200px;margin:0 auto;position:relative;">
+      <!-- 标题区 -->
+      <div style="text-align:center;margin-bottom:64px;">
+        <div class="section-label" style="color:#00D4AA;" data-zh="AI COMPUTE MARKETPLACE" data-en="AI COMPUTE MARKETPLACE">AI COMPUTE MARKETPLACE</div>
+        <h2 class="section-title" style="font-size:clamp(32px,4.5vw,52px);margin-bottom:20px;">
+          <span data-zh="购买AI算力" data-en="Buy AI Compute" style="color:#00D4AA;">购买AI算力</span>
+          <br>
+          <span style="font-size:clamp(18px,2.5vw,26px);font-weight:400;color:var(--text-dim);" data-zh="用 USDD 结算 · 即买即用 · 全球覆盖" data-en="Pay with USDD · Instant Access · Global Coverage">用 USDD 结算 · 即买即用 · 全球覆盖</span>
+        </h2>
+        <!-- 市场数据 3连 -->
+        <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:32px;">
+          <div style="text-align:center;">
+            <div style="font-size:28px;font-weight:700;color:#00D4AA;">$280B+</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:4px;" data-zh="2024年全球AI市场" data-en="2024 Global AI Market">2024年全球AI市场</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:28px;font-weight:700;color:#00D4AA;">35%+</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:4px;" data-zh="年复合增长率" data-en="CAGR">年复合增长率</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:28px;font-weight:700;color:#00D4AA;">60%+</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:4px;" data-zh="H100 全球缺口" data-en="H100 Global Shortage">H100 全球缺口</div>
+          </div>
+          <div style="width:1px;background:var(--border);"></div>
+          <div style="text-align:center;">
+            <div style="font-size:28px;font-weight:700;color:#00D4AA;">24/7</div>
+            <div style="font-size:12px;color:var(--text-dim);margin-top:4px;" data-zh="全天候算力供应" data-en="Round-the-clock Supply">全天候算力供应</div>
+          </div>
         </div>
       </div>
 
-      <div class="hero-cta-group" style="justify-content:center;gap:20px;">
-        <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" class="btn-ai-compute" style="padding:16px 40px;font-size:16px;" data-zh="🔥 立即购买AI算力" data-en="🔥 Buy AI Compute Now">🔥 立即购买AI算力</a>
-        <a href="https://www.darkmatterbank.com/token/groq" target="_blank" rel="noopener" style="padding:16px 32px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.4);color:#00D4AA;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;" data-zh="查看支持的算力 →" data-en="View Supported Compute →">查看支持的算力 →</a>
+      <!-- GPU算力购买卡片 -->
+      <div style="margin-bottom:56px;">
+        <div style="text-align:center;margin-bottom:32px;">
+          <span style="font-size:13px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;" data-zh="▶ GPU 算力套餐" data-en="▶ GPU Compute Plans">▶ GPU 算力套餐</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+
+          <!-- 入门版 H100 -->
+          <div class="compute-plan-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px 28px;position:relative;transition:all 0.3s;">
+            <div style="font-size:28px;margin-bottom:12px;">⚡</div>
+            <div style="font-size:11px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">STARTER</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:4px;" data-zh="H100 入门版" data-en="H100 Starter">H100 入门版</div>
+            <div style="font-size:13px;color:var(--text-dim);margin-bottom:24px;" data-zh="适合个人开发者和初创团队" data-en="For individual developers & startups">适合个人开发者和初创团队</div>
+            <div style="font-size:36px;font-weight:800;color:#00D4AA;margin-bottom:6px;">$0.99<span style="font-size:14px;font-weight:400;color:var(--text-dim);">/hr</span></div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:24px;" data-zh="≈ 0.99 USDD / 小时" data-en="≈ 0.99 USDD / hour">≈ 0.99 USDD / 小时</div>
+            <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="1× NVIDIA H100 80GB" data-en="1× NVIDIA H100 80GB">1× NVIDIA H100 80GB</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="200GB NVMe 存储" data-en="200GB NVMe Storage">200GB NVMe 存储</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="100Gbps 网络带宽" data-en="100Gbps Network">100Gbps 网络带宽</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="按小时计费" data-en="Hourly billing">按小时计费</span></li>
+            </ul>
+            <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.4);color:#00D4AA;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.25s;" onmouseover="this.style.background='rgba(0,212,170,0.2)'" onmouseout="this.style.background='rgba(0,212,170,0.1)'" data-zh="立即购买 →" data-en="Buy Now →">立即购买 →</a>
+          </div>
+
+          <!-- 专业版 H100 × 4 推荐 -->
+          <div class="compute-plan-card" style="background:linear-gradient(160deg,rgba(0,212,170,0.08) 0%,var(--bg-card) 100%);border:1.5px solid rgba(0,212,170,0.5);border-radius:20px;padding:32px 28px;position:relative;transition:all 0.3s;">
+            <!-- 推荐标签 -->
+            <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#00D4AA,#00A389);color:#0a0a0a;font-size:11px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:1px;white-space:nowrap;" data-zh="🔥 最受欢迎" data-en="🔥 MOST POPULAR">🔥 最受欢迎</div>
+            <div style="font-size:28px;margin-bottom:12px;">🚀</div>
+            <div style="font-size:11px;letter-spacing:1.5px;color:#00D4AA;text-transform:uppercase;margin-bottom:8px;">PRO</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:4px;" data-zh="H100 × 4 专业版" data-en="H100 × 4 Pro">H100 × 4 专业版</div>
+            <div style="font-size:13px;color:var(--text-dim);margin-bottom:24px;" data-zh="适合中型 AI 训练和推理" data-en="For mid-scale AI training & inference">适合中型 AI 训练和推理</div>
+            <div style="font-size:36px;font-weight:800;color:#00D4AA;margin-bottom:6px;">$3.49<span style="font-size:14px;font-weight:400;color:var(--text-dim);">/hr</span></div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:24px;" data-zh="≈ 3.49 USDD / 小时" data-en="≈ 3.49 USDD / hour">≈ 3.49 USDD / 小时</div>
+            <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="4× NVIDIA H100 80GB" data-en="4× NVIDIA H100 80GB">4× NVIDIA H100 80GB</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="1TB NVMe 存储" data-en="1TB NVMe Storage">1TB NVMe 存储</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="400Gbps NVLink 互联" data-en="400Gbps NVLink Interconnect">400Gbps NVLink 互联</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="专属技术支持" data-en="Dedicated Technical Support">专属技术支持</span></li>
+            </ul>
+            <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:linear-gradient(135deg,#00D4AA,#00A389);color:#0a0a0a;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;transition:all 0.25s;box-shadow:0 4px 20px rgba(0,212,170,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(0,212,170,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(0,212,170,0.3)'" data-zh="立即购买 →" data-en="Buy Now →">立即购买 →</a>
+          </div>
+
+          <!-- 企业版 H100 × 8 -->
+          <div class="compute-plan-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px 28px;position:relative;transition:all 0.3s;">
+            <div style="font-size:28px;margin-bottom:12px;">🏢</div>
+            <div style="font-size:11px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">ENTERPRISE</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:4px;" data-zh="H100 × 8 企业版" data-en="H100 × 8 Enterprise">H100 × 8 企业版</div>
+            <div style="font-size:13px;color:var(--text-dim);margin-bottom:24px;" data-zh="适合大规模模型训练和企业部署" data-en="For large-scale training & enterprise deployment">适合大规模模型训练和企业部署</div>
+            <div style="font-size:36px;font-weight:800;color:#00D4AA;margin-bottom:6px;">$6.49<span style="font-size:14px;font-weight:400;color:var(--text-dim);">/hr</span></div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:24px;" data-zh="≈ 6.49 USDD / 小时" data-en="≈ 6.49 USDD / hour">≈ 6.49 USDD / 小时</div>
+            <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="8× NVIDIA H100 SXM5 80GB" data-en="8× NVIDIA H100 SXM5 80GB">8× NVIDIA H100 SXM5 80GB</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="4TB NVMe RAID 存储" data-en="4TB NVMe RAID Storage">4TB NVMe RAID 存储</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="NVSwitch 全互联架构" data-en="NVSwitch Full Interconnect">NVSwitch 全互联架构</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="SLA 99.9% + 专属 CSM" data-en="SLA 99.9% + Dedicated CSM">SLA 99.9% + 专属 CSM</span></li>
+            </ul>
+            <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.4);color:#00D4AA;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.25s;" onmouseover="this.style.background='rgba(0,212,170,0.2)'" onmouseout="this.style.background='rgba(0,212,170,0.1)'" data-zh="立即购买 →" data-en="Buy Now →">立即购买 →</a>
+          </div>
+
+          <!-- 算力包月 -->
+          <div class="compute-plan-card" style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px 28px;position:relative;transition:all 0.3s;">
+            <div style="font-size:28px;margin-bottom:12px;">📦</div>
+            <div style="font-size:11px;letter-spacing:1.5px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">MONTHLY</div>
+            <div style="font-size:20px;font-weight:700;color:var(--text-primary);margin-bottom:4px;" data-zh="算力月租包" data-en="Monthly Compute Pack">算力月租包</div>
+            <div style="font-size:13px;color:var(--text-dim);margin-bottom:24px;" data-zh="稳定算力需求首选，按月预付享折扣" data-en="Best for steady workloads, prepay monthly for savings">稳定算力需求首选，按月预付享折扣</div>
+            <div style="font-size:36px;font-weight:800;color:#00D4AA;margin-bottom:6px;">$499<span style="font-size:14px;font-weight:400;color:var(--text-dim);">/mo</span></div>
+            <div style="font-size:12px;color:var(--text-dim);margin-bottom:24px;" data-zh="省40%（对比按时计费）" data-en="Save 40% vs hourly billing">省40%（对比按时计费）</div>
+            <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="720小时算力额度/月" data-en="720 GPU Hours / Month">720小时算力额度/月</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="H100 / A100 自由切换" data-en="H100 / A100 Flexible Switch">H100 / A100 自由切换</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="USDD 结算 · 免换汇" data-en="USDD Payment · No FX Fees">USDD 结算 · 免换汇</span></li>
+              <li style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-dim);"><span style="color:#00D4AA;font-size:16px;">✓</span> <span data-zh="未用额度顺延下月" data-en="Unused hours roll over">未用额度顺延下月</span></li>
+            </ul>
+            <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" style="display:block;text-align:center;padding:12px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.4);color:#00D4AA;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:all 0.25s;" onmouseover="this.style.background='rgba(0,212,170,0.2)'" onmouseout="this.style.background='rgba(0,212,170,0.1)'" data-zh="立即购买 →" data-en="Buy Now →">立即购买 →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 支付流程说明 -->
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:40px;margin-bottom:40px;">
+        <div style="text-align:center;margin-bottom:32px;">
+          <div style="font-size:13px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;" data-zh="HOW TO BUY · 购买流程" data-en="HOW TO BUY">HOW TO BUY · 购买流程</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;">
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 12px;">①</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px;" data-zh="注册账户" data-en="Register Account">注册账户</div>
+            <div style="font-size:12px;color:var(--text-dim);" data-zh="访问 DarkMatterBank 完成注册" data-en="Visit DarkMatterBank to register">访问 DarkMatterBank 完成注册</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 12px;">②</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px;" data-zh="购买 USDD" data-en="Buy USDD">购买 USDD</div>
+            <div style="font-size:12px;color:var(--text-dim);" data-zh="最低 $1 起，支持多种支付方式" data-en="From $1, multiple payment options">最低 $1 起，支持多种支付方式</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 12px;">③</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px;" data-zh="选择算力套餐" data-en="Select Compute Plan">选择算力套餐</div>
+            <div style="font-size:12px;color:var(--text-dim);" data-zh="按需选择 GPU 规格和时长" data-en="Choose GPU spec and duration">按需选择 GPU 规格和时长</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:48px;height:48px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;margin:0 auto 12px;">④</div>
+            <div style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:6px;" data-zh="USDD 支付 · 即时部署" data-en="Pay USDD · Deploy Instantly">USDD 支付 · 即时部署</div>
+            <div style="font-size:12px;color:var(--text-dim);" data-zh="链上结算，30秒内完成部署" data-en="On-chain settlement, deployed in 30s">链上结算，30秒内完成部署</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部CTA -->
+      <div style="text-align:center;">
+        <p style="font-size:15px;color:var(--text-dim);margin-bottom:24px;" data-zh="需要定制化算力方案？我们的专业团队为您服务。" data-en="Need a custom compute solution? Our team is ready to help.">需要定制化算力方案？我们的专业团队为您服务。</p>
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+          <a href="https://www.darkmatterbank.com/token" target="_blank" rel="noopener" class="btn-ai-compute" style="padding:14px 36px;font-size:15px;" data-zh="🔥 立即购买算力" data-en="🔥 Buy Compute Now">🔥 立即购买算力</a>
+          <a href="https://www.darkmatterbank.com/" target="_blank" rel="noopener" style="padding:14px 28px;background:transparent;border:1px solid var(--border);color:var(--text-dim);border-radius:8px;text-decoration:none;font-weight:500;font-size:15px;transition:all 0.25s;" onmouseover="this.style.borderColor='var(--gold-border)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-dim)'" data-zh="联系企业销售 →" data-en="Contact Enterprise Sales →">联系企业销售 →</a>
+        </div>
       </div>
     </div>
   </section>
