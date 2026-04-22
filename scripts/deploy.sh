@@ -67,6 +67,25 @@ deploy_cloudflare() {
     fi
 }
 
+# 本地镜像 + Gitee 同步
+sync_mirrors() {
+    local mirror_dir="$HOME/Desktop/code-backup/repos/usdd-stablecoin.git"
+    
+    if [ -d "$mirror_dir" ]; then
+        log "🔄 同步本地镜像..."
+        cd "$mirror_dir"
+        git fetch origin main
+        git push --all 2>/dev/null
+        git push --tags 2>/dev/null || true
+        if git remote | grep -q gitee; then
+            log "🔄 同步 Gitee 镜像..."
+            git push gitee main 2>/dev/null || true
+        fi
+        cd - > /dev/null
+        log "✅ 镜像同步完成"
+    fi
+}
+
 # 主流程
 main() {
     local msg="${1:-更新 $PROJECT $(date '+%Y-%m-%d %H:%M')}"
@@ -79,6 +98,7 @@ main() {
     check_git
     push_github "$msg"
     deploy_cloudflare
+    sync_mirrors
     
     echo ""
     log "🎉 全部完成！"
